@@ -1,10 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbmq3p3y4g2lr"]
+[gd_scene load_steps=8 format=3 uid="uid://bbmq3p3y4g2lr"]
 
-[ext_resource type="Texture2D" uid="uid://gl7p2arbjh45" path="res://art/mainScreen/mainScreenTemp.svg" id="1_la1a6"]
+[ext_resource type="Texture2D" uid="uid://bxr1m41ivo7u7" path="res://art/mainScreen/mainScreen.svg" id="1_dxj4q"]
+[ext_resource type="Texture2D" uid="uid://brifn2vvwth7e" path="res://art/mainScreen/mainScreenTemp.svg" id="1_la1a6"]
+[ext_resource type="Texture2D" uid="uid://clwxvcts6077q" path="res://art/mainScreen/thermometer.svg" id="3_nimvq"]
+[ext_resource type="Script" path="res://thermometer.gd" id="3_prkef"]
+[ext_resource type="Script" path="res://back_button.gd" id="5_eb6gy"]
+[ext_resource type="Texture2D" uid="uid://dbf5bnemdrww" path="res://art/backButton.svg" id="6_irfmv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cwhq"]
+radius = 28.0
+height = 128.0
 
 [node name="MainScreen" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MainScreen" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_dxj4q")
+
+[node name="MainTemp" type="TextureRect" parent="."]
+visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_la1a6")
+metadata/_edit_lock_ = true
+
+[node name="Thermometer" type="Area2D" parent="."]
+script = ExtResource("3_prkef")
+
+[node name="Sprite2D" type="Sprite2D" parent="Thermometer"]
+position = Vector2(961, 540)
+texture = ExtResource("3_nimvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thermometer"]
+position = Vector2(144, 187)
+shape = SubResource("CapsuleShape2D_7cwhq")
+
+[node name="BackButton" type="Area2D" parent="."]
+script = ExtResource("5_eb6gy")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="BackButton"]
+position = Vector2(960, 540)
+texture = ExtResource("6_irfmv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackButton"]
+polygon = PackedVector2Array(123, 46, 122, 86, 69, 88, 68, 118, 14, 66, 67, 11, 69, 45)
+
+[connection signal="input_event" from="Thermometer" to="Thermometer" method="_on_input_event"]
+[connection signal="mouse_entered" from="Thermometer" to="Thermometer" method="_on_mouse_entered"]
+[connection signal="input_event" from="BackButton" to="BackButton" method="_on_input_event"]

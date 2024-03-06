@@ -1,4 +1,5 @@
-extends CanvasLayer
+extends Area2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,5 +11,7 @@ func _process(delta):
 	pass
 
 
-func _on_play_pressed():
-	SceneSwitcher.set_scene("res://main_screen.tscn")
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		SceneSwitcher.set_scene_back()
+		queue_free()

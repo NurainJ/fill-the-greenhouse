@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Fill The Greenhouse"
+run/main_scene="res://root.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
 
 [autoload]
 
 SceneSwitcher="*res://scene_switcher.gd"
+GameVariables="*res://game_variables.gd"
 
 [display]
 

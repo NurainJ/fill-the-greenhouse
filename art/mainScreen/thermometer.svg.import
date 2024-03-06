@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brifn2vvwth7e"
-path="res://.godot/imported/mainScreenTemp.svg-b9e53d0a3f2cea3cd39047a9242d2032.ctex"
+uid="uid://clwxvcts6077q"
+path="res://.godot/imported/thermometer.svg-40f3c3a1c6df696d221e0183f8733df5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/mainScreen/mainScreenTemp.svg"
-dest_files=["res://.godot/imported/mainScreenTemp.svg-b9e53d0a3f2cea3cd39047a9242d2032.ctex"]
+source_file="res://art/mainScreen/thermometer.svg"
+dest_files=["res://.godot/imported/thermometer.svg-40f3c3a1c6df696d221e0183f8733df5.ctex"]
 
 [params]
 

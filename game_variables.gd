@@ -1,4 +1,6 @@
-extends CanvasLayer
+extends Node
+
+var temperature = 75
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +10,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_play_pressed():
-	SceneSwitcher.set_scene("res://main_screen.tscn")
