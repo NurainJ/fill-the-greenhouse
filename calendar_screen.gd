@@ -1,13 +1,15 @@
-extends Node
+extends Node2D
 
-var temperature = 75
-var days_remaining = 20
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	update_display()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func update_display():
+	$CalendarText.set_text(str(GameVariables.days_remaining))

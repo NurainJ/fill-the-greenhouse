@@ -1,22 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkpxamh3cujkk"]
+[gd_scene load_steps=8 format=3 uid="uid://dkpxamh3cujkk"]
 
-[ext_resource type="Texture2D" uid="uid://ddv12bpoa0v5w" path="res://art/thermometerScreen/thermometerRef.svg" id="1_kfsqg"]
 [ext_resource type="Texture2D" uid="uid://b7b14k55ua558" path="res://art/thermometerScreen/thermometerBackground.svg" id="2_4wljp"]
 [ext_resource type="FontFile" uid="uid://bmuiint7t2i05" path="res://fonts/thermometerFont.ttf" id="3_rbrpg"]
 [ext_resource type="Script" path="res://temperature_label.gd" id="4_sd1gr"]
 [ext_resource type="Texture2D" uid="uid://uhwcyk0n1ind" path="res://art/thermometerScreen/thermometerUpButton.svg" id="5_bb2t5"]
 [ext_resource type="Texture2D" uid="uid://bp8bn71a5kyqr" path="res://art/thermometerScreen/thermometerDownButton.svg" id="6_y37g7"]
 [ext_resource type="Texture2D" uid="uid://dt1fxc7ivrbns" path="res://art/thermometerScreen/thermometerFill.svg" id="7_205dk"]
-[ext_resource type="Script" path="res://back_button.gd" id="8_px3n8"]
-[ext_resource type="Texture2D" uid="uid://dbf5bnemdrww" path="res://art/backButton.svg" id="9_7ckjp"]
+[ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="7_kwyhr"]
 
 [node name="ThermometerScreen" type="Node2D"]
-
-[node name="ThermometerRef" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_kfsqg")
-metadata/_edit_lock_ = true
 
 [node name="ThermometerBackground" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -61,17 +53,7 @@ offset_bottom = 40.0
 texture = ExtResource("7_205dk")
 metadata/_edit_lock_ = true
 
-[node name="BackButton" type="Area2D" parent="."]
-script = ExtResource("8_px3n8")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="BackButton"]
-position = Vector2(960, 540)
-texture = ExtResource("9_7ckjp")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackButton"]
-polygon = PackedVector2Array(123, 46, 122, 86, 69, 88, 68, 118, 14, 66, 67, 11, 69, 45)
+[node name="BackButton" parent="." instance=ExtResource("7_kwyhr")]
 
 [connection signal="input_event" from="UpButton" to="TempLabel" method="_on_up_button_input_event"]
 [connection signal="input_event" from="DownButton" to="TempLabel" method="_on_down_button_input_event"]
-[connection signal="input_event" from="BackButton" to="BackButton" method="_on_input_event"]

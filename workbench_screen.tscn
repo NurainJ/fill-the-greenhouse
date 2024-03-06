@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cal3i4ptukm7r"]
+
+[ext_resource type="Texture2D" uid="uid://bgfm8aegqv7ws" path="res://art/workbenchScreen/workbenchBackgroundTemp.svg" id="1_xhyws"]
+[ext_resource type="Texture2D" uid="uid://b748n5tscbv8h" path="res://art/workbenchScreen/potSoilFull.svg" id="2_drnt8"]
+[ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="3_8qao5"]
+
+[node name="WorkbenchScreen" type="Node2D"]
+
+[node name="WorkbenchBackground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_xhyws")
+
+[node name="PotSoil" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_drnt8")
+
+[node name="BackButton" parent="." instance=ExtResource("3_8qao5")]

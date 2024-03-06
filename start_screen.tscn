@@ -1,36 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ige871nt07ne"]
+[gd_scene load_steps=5 format=3 uid="uid://ige871nt07ne"]
 
 [ext_resource type="Texture2D" uid="uid://da112f27rx6ql" path="res://art/startScreen/startScreen.svg" id="1_bulb6"]
 [ext_resource type="Script" path="res://start_screen.gd" id="1_g43mc"]
 [ext_resource type="FontFile" uid="uid://bwy5pdn3ctotf" path="res://fonts/titleScreenFont.ttf" id="3_ew65f"]
 [ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="3_ndknm"]
-
-[sub_resource type="Theme" id="Theme_j54pk"]
-default_font = ExtResource("3_ndknm")
-default_font_size = 64
-Button/colors/font_color = Color(0, 0, 0, 1)
-Button/colors/font_disabled_color = Color(0, 0, 0, 1)
-Button/colors/font_focus_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/colors/font_pressed_color = Color(0, 0, 0, 1)
-Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
-Button/colors/icon_focus_color = Color(0, 0, 0, 1)
-Button/colors/icon_hover_color = Color(0, 0, 0, 1)
-Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
-Button/colors/icon_normal_color = Color(0, 0, 0, 1)
-Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
-Button/constants/h_separation = 0
-Button/constants/icon_max_width = 0
-Button/constants/outline_size = 0
-Button/font_sizes/font_size = 64
-Button/fonts/font = ExtResource("3_ndknm")
-Button/styles/disabled = null
-Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = null
-Button/styles/pressed = null
 
 [node name="StartScreen" type="CanvasLayer"]
 layer = 2
@@ -132,8 +105,8 @@ offset_bottom = 289.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme = SubResource("Theme_j54pk")
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ndknm")
+theme_override_font_sizes/font_size = 50
 text = "Play"
 metadata/_edit_group_ = true
 
