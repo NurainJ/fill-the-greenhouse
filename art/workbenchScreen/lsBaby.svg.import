@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0epr2hk353gw"
-path="res://.godot/imported/potSoilFull.svg-c24aa708b7b6abf5c63637197c18d75c.ctex"
+uid="uid://bb4ed4umasa87"
+path="res://.godot/imported/lsBaby.svg-410d68b5b770fbb0520344958f08bb1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/workbenchScreen/potSoilFull.svg"
-dest_files=["res://.godot/imported/potSoilFull.svg-c24aa708b7b6abf5c63637197c18d75c.ctex"]
+source_file="res://art/workbenchScreen/lsBaby.svg"
+dest_files=["res://.godot/imported/lsBaby.svg-410d68b5b770fbb0520344958f08bb1e.ctex"]
 
 [params]
 

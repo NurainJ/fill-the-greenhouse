@@ -1,7 +1,8 @@
 extends Node
 
-var current_scene : String
+var current_scene = "res://start_screen.tscn"
 var previous_scene = {
+	"res://start_screen.tscn": "res://start_screen.tscn", 
 	"res://main_screen.tscn": "res://start_screen.tscn", 
 	"res://calendar_screen.tscn": "res://main_screen.tscn", 
 	"res://thermometer_screen.tscn": "res://main_screen.tscn", 
@@ -10,7 +11,7 @@ var previous_scene = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	current_scene = "res://start_screen.tscn"
+	pass
 	
 
 func set_scene(path):

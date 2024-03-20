@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://budbwfgc7s4b8"]
+
+[ext_resource type="Script" path="res://pot.gd" id="1_3skoy"]
+[ext_resource type="Texture2D" uid="uid://b0epr2hk353gw" path="res://art/workbenchScreen/potSoilFull.svg" id="2_3c5g3"]
+
+[node name="Pot" type="Area2D"]
+script = ExtResource("1_3skoy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(914, 624, 959, 641, 1010, 627, 1031, 500, 889, 499)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(950, 460)
+scale = Vector2(0.360417, 0.360185)
+texture = ExtResource("2_3c5g3")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

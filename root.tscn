@@ -1,13 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw78amu1t206c"]
+[gd_scene load_steps=3 format=3 uid="uid://cw78amu1t206c"]
 
 [ext_resource type="PackedScene" uid="uid://ige871nt07ne" path="res://start_screen.tscn" id="1_tfkk2"]
 [ext_resource type="PackedScene" uid="uid://bbmq3p3y4g2lr" path="res://main_screen.tscn" id="2_ty2yg"]
-[ext_resource type="PackedScene" uid="uid://dkpxamh3cujkk" path="res://thermometer_screen.tscn" id="3_ku7q8"]
 
 [node name="Root" type="Node"]
 
 [node name="StartScreen" parent="." instance=ExtResource("1_tfkk2")]
 
 [node name="MainScreen" parent="." instance=ExtResource("2_ty2yg")]
-
-[node name="ThermometerScreen" parent="." instance=ExtResource("3_ku7q8")]

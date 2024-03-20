@@ -1,12 +1,11 @@
-extends Node
+extends Sprite2D
 
-var temperature = 75
-var days_remaining = 20
-var currentPlantState = Array()
-var activePlant = 0
+var base = "res://art/workbenchScreen/"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_texture(load(base + GameVariables.currentPlantState[GameVariables.activePlant]))
 	pass # Replace with function body.
 
 
