@@ -6,7 +6,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -20,5 +20,5 @@ func _input(event: InputEvent):
 		get_viewport().set_input_as_handled()
 
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished(_anim_name):
 	visible = false
