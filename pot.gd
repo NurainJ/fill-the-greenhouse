@@ -10,7 +10,7 @@ var number : int;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite2D.set_texture(load(Base + GameVariables.currentPlantState[number]))
-	get_parent().get_node("NextDay").pressed.connect(_on_button_pressed.bind())
+	get_parent().get_node("BlackScreen/BlackScreenPlayer").connect("is_black", _animation_finished.bind())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,7 +24,7 @@ func _on_input_event(viewport, event, shape_idx):
 		queue_free()
 
 
-func _on_button_pressed():
+func _animation_finished():
 	if (is_growing()):
 		GameVariables.currentPlantState[number] = NextScene.get(GameVariables.currentPlantState[number])
 		$Sprite2D.set_texture(load(Base + GameVariables.currentPlantState[number]))

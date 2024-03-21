@@ -27,3 +27,4 @@ func _process(delta):
 
 func _on_button_pressed():
 	$Calendar.next_day()
+	$BlackScreen.fade_to_black()

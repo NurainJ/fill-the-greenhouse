@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbmq3p3y4g2lr"]
+[gd_scene load_steps=17 format=3 uid="uid://bbmq3p3y4g2lr"]
 
 [ext_resource type="Texture2D" uid="uid://bxr1m41ivo7u7" path="res://art/mainScreen/mainScreen.svg" id="1_dxj4q"]
 [ext_resource type="Texture2D" uid="uid://brifn2vvwth7e" path="res://art/mainScreen/mainScreenTemp.svg" id="1_la1a6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://seed_box.gd" id="9_gwuhr"]
 [ext_resource type="Texture2D" uid="uid://c50xtuuhg75it" path="res://art/mainScreen/seedBox.svg" id="10_chgr0"]
 [ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="13_sioij"]
+[ext_resource type="PackedScene" uid="uid://chja3jifya2yp" path="res://black_screen.tscn" id="15_s6ion"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cwhq"]
 radius = 28.0
@@ -98,6 +99,8 @@ offset_bottom = 1064.0
 theme_override_fonts/font = ExtResource("13_sioij")
 theme_override_font_sizes/font_size = 50
 text = "Next Day"
+
+[node name="BlackScreen" parent="." instance=ExtResource("15_s6ion")]
 
 [connection signal="input_event" from="Thermometer" to="Thermometer" method="_on_input_event"]
 [connection signal="mouse_entered" from="Thermometer" to="Thermometer" method="_on_mouse_entered"]
