@@ -1,10 +1,97 @@
-[gd_scene load_steps=5 format=3 uid="uid://cal3i4ptukm7r"]
+[gd_scene load_steps=11 format=3 uid="uid://cal3i4ptukm7r"]
 
-[ext_resource type="Texture2D" uid="uid://bgfm8aegqv7ws" path="res://art/workbenchScreen/workbenchBackgroundTemp.svg" id="1_xhyws"]
+[ext_resource type="Texture2D" uid="uid://cfsgyfhoha24k" path="res://art/workbenchScreen/workbenchBackgroundTemp.svg" id="1_xhyws"]
 [ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="3_8qao5"]
 [ext_resource type="Script" path="res://plant.gd" id="3_cmqpq"]
+[ext_resource type="Texture2D" uid="uid://cu4aphc55a46c" path="res://art/workbenchScreen/wateringCanTemp.svg" id="4_25wrc"]
+[ext_resource type="Texture2D" uid="uid://c541beuh60fa3" path="res://art/workbenchScreen/wateringCan.svg" id="5_5toqa"]
+[ext_resource type="Texture2D" uid="uid://br3e8e7i7ykrs" path="res://art/workbenchScreen/water.svg" id="5_7xiaf"]
+[ext_resource type="Script" path="res://watering_can.gd" id="6_0g8e2"]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7bxx7"]
+[sub_resource type="Animation" id="Animation_br3cn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wateringCan/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wateringCan/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("water:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8n3qa"]
+resource_name = "watering"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wateringCan/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.51, 5, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.614356, -0.614356, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wateringCan/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 5, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(985, 626), Vector2(985, 626), Vector2(960, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("water:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b2nu5"]
+_data = {
+"RESET": SubResource("Animation_br3cn"),
+"watering": SubResource("Animation_8n3qa")
+}
 
 [node name="WorkbenchScreen" type="Node2D"]
 
@@ -19,7 +106,32 @@ script = ExtResource("3_cmqpq")
 
 [node name="BackButton" parent="." instance=ExtResource("3_8qao5")]
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_7bxx7")
+[node name="wateringCanTemp" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_25wrc")
+
+[node name="water" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("5_7xiaf")
+
+[node name="wateringCan" type="Area2D" parent="."]
+script = ExtResource("6_0g8e2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wateringCan"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_b2nu5")
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateringCan"]
+polygon = PackedVector2Array(1400, 699, 1552, 756, 1762, 701, 1876, 263, 1436, 327, 1234, 327, 1136, 366)
+
+[node name="Sprite2D" type="Sprite2D" parent="wateringCan"]
+position = Vector2(960, 540)
+texture = ExtResource("5_5toqa")
 
 [connection signal="input_event" from="BackButton" to="plant" method="_on_back_button_input_event"]
+[connection signal="input_event" from="wateringCan" to="wateringCan" method="_on_input_event"]

@@ -6,7 +6,7 @@ var activePlant = 0
 
 var plantProperties = Array()
 
-enum Species {LadySlipper, Pasque}
+enum Species {LadySlipper, Pasque, WildYam}
 enum Properties {currentState, species}
 
 const LadySlipperNextScene = {"potSoilFull.svg": "lsBaby.svg", 
@@ -19,8 +19,14 @@ const PasqueNextScene = {"potSoilFull.svg": "pasque1.svg",
 				"pasque2.svg": "pasque3.svg", 
 				"pasque3.svg": "pasqueFull.svg",
 				"pasqueFull.svg": "pasqueFull.svg"}
+const WildYamNextScene = {"potSoilFull.svg": "wildYam1.svg", 
+				"wildYam1.svg": "wildYam2.svg", 
+				"wildYam2.svg": "wildYam3.svg", 
+				"wildYam3.svg": "wildYamFull.svg",
+				"wildYamFull.svg": "wildYamFull.svg"}
+								
 const Base = "res://art/workbenchScreen/"
-const NextScene = {Species.LadySlipper : LadySlipperNextScene, Species.Pasque : PasqueNextScene}
+const NextScene = {Species.LadySlipper : LadySlipperNextScene, Species.Pasque : PasqueNextScene, Species.WildYam : WildYamNextScene}
 
 
 

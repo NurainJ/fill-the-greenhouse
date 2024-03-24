@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfsgyfhoha24k"
-path="res://.godot/imported/workbenchBackgroundTemp.svg-74c09f02012c6cfeb37c6f227e48d6e9.ctex"
+uid="uid://b6h85w35hqf2"
+path="res://.godot/imported/wildYam3.svg-65a55078ed8468d10657be758084b8f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/workbenchScreen/workbenchBackgroundTemp.svg"
-dest_files=["res://.godot/imported/workbenchBackgroundTemp.svg-74c09f02012c6cfeb37c6f227e48d6e9.ctex"]
+source_file="res://art/workbenchScreen/wildYam3.svg"
+dest_files=["res://.godot/imported/wildYam3.svg-65a55078ed8468d10657be758084b8f8.ctex"]
 
 [params]
 

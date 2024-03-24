@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfsgyfhoha24k"
-path="res://.godot/imported/workbenchBackgroundTemp.svg-74c09f02012c6cfeb37c6f227e48d6e9.ctex"
+uid="uid://c541beuh60fa3"
+path="res://.godot/imported/wateringCan.svg-de33a9154de44f2142441a35e0cd8759.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/workbenchScreen/workbenchBackgroundTemp.svg"
-dest_files=["res://.godot/imported/workbenchBackgroundTemp.svg-74c09f02012c6cfeb37c6f227e48d6e9.ctex"]
+source_file="res://art/workbenchScreen/wateringCan.svg"
+dest_files=["res://.godot/imported/wateringCan.svg-de33a9154de44f2142441a35e0cd8759.ctex"]
 
 [params]
 
