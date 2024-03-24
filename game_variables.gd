@@ -2,8 +2,27 @@ extends Node
 
 var temperature = 75
 var days_remaining = 20
-var currentPlantState = Array()
 var activePlant = 0
+
+var plantProperties = Array()
+
+enum Species {LadySlipper, Pasque}
+enum Properties {currentState, species}
+
+const LadySlipperNextScene = {"potSoilFull.svg": "lsBaby.svg", 
+				"lsBaby.svg": "lsBud.svg", 
+				"lsBud.svg": "lsLeaves.svg",
+				"lsLeaves.svg": "lsFull.svg",
+				"lsFull.svg": "lsFull.svg"}
+const PasqueNextScene = {"potSoilFull.svg": "pasque1.svg", 
+				"pasque1.svg": "pasque2.svg", 
+				"pasque2.svg": "pasque3.svg", 
+				"pasque3.svg": "pasqueFull.svg",
+				"pasqueFull.svg": "pasqueFull.svg"}
+const Base = "res://art/workbenchScreen/"
+const NextScene = {Species.LadySlipper : LadySlipperNextScene, Species.Pasque : PasqueNextScene}
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,3 +32,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func getNextScene(plantNumber: int) -> String:
+	var currentState = plantProperties[plantNumber][Properties.currentState]
+	currentState = NextScene.get(plantProperties[plantNumber][Properties.species]).get(currentState)
+	plantProperties[plantNumber][Properties.currentState] = currentState
+	return currentState

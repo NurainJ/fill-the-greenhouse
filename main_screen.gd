@@ -15,7 +15,10 @@ func _ready():
 		pot.name = "Pot" + str(x + 1)
 		pot.position = PotPosition[x]
 		pot.number = x
-		GameVariables.currentPlantState.append("potSoilFull.svg")
+		if (x % 2 == 0):
+			GameVariables.plantProperties.append({GameVariables.Properties.currentState: "potSoilFull.svg", GameVariables.Properties.species: GameVariables.Species.LadySlipper})
+		else:
+			GameVariables.plantProperties.append({GameVariables.Properties.currentState: "potSoilFull.svg", GameVariables.Properties.species: GameVariables.Species.Pasque})
 		self.add_child(pot)
 	pass # Replace with function body.
 
