@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cal3i4ptukm7r"]
+[gd_scene load_steps=12 format=3 uid="uid://cal3i4ptukm7r"]
 
 [ext_resource type="Texture2D" uid="uid://cfsgyfhoha24k" path="res://art/workbenchScreen/workbenchBackgroundTemp.svg" id="1_xhyws"]
 [ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="3_8qao5"]
 [ext_resource type="Script" path="res://plant.gd" id="3_cmqpq"]
-[ext_resource type="Texture2D" uid="uid://cu4aphc55a46c" path="res://art/workbenchScreen/wateringCanTemp.svg" id="4_25wrc"]
 [ext_resource type="Texture2D" uid="uid://c541beuh60fa3" path="res://art/workbenchScreen/wateringCan.svg" id="5_5toqa"]
 [ext_resource type="Texture2D" uid="uid://br3e8e7i7ykrs" path="res://art/workbenchScreen/water.svg" id="5_7xiaf"]
 [ext_resource type="Script" path="res://watering_can.gd" id="6_0g8e2"]
+[ext_resource type="Texture2D" uid="uid://bgdseqjefht8v" path="res://art/pot/pot.svg" id="7_egjbp"]
+[ext_resource type="Texture2D" uid="uid://cew1cd44inmsb" path="res://art/pot/potSoilFull.svg" id="8_1a51e"]
 
 [sub_resource type="Animation" id="Animation_br3cn"]
 length = 0.001
@@ -57,7 +58,7 @@ tracks/0/path = NodePath("wateringCan/Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.51, 5, 6.5),
+"times": PackedFloat32Array(0, 1.51, 4.5, 6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -0.614356, -0.614356, 0.0]
@@ -69,7 +70,7 @@ tracks/1/path = NodePath("wateringCan/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 5, 6.5),
+"times": PackedFloat32Array(0, 1.5, 4.5, 6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(960, 540), Vector2(985, 626), Vector2(985, 626), Vector2(960, 540)]
@@ -81,7 +82,7 @@ tracks/2/path = NodePath("water:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2, 3, 4, 5),
+"times": PackedFloat32Array(2, 3, 3.5, 4.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -100,17 +101,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_xhyws")
 
-[node name="plant" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-script = ExtResource("3_cmqpq")
-
 [node name="BackButton" parent="." instance=ExtResource("3_8qao5")]
 
-[node name="wateringCanTemp" type="TextureRect" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("4_25wrc")
+[node name="pot" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("7_egjbp")
+
+[node name="potSoil" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("8_1a51e")
 
 [node name="water" type="Sprite2D" parent="."]
 visible = false
@@ -132,6 +133,10 @@ polygon = PackedVector2Array(1400, 699, 1552, 756, 1762, 701, 1876, 263, 1436, 3
 [node name="Sprite2D" type="Sprite2D" parent="wateringCan"]
 position = Vector2(960, 540)
 texture = ExtResource("5_5toqa")
+
+[node name="plant" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("3_cmqpq")
 
 [connection signal="input_event" from="BackButton" to="plant" method="_on_back_button_input_event"]
 [connection signal="input_event" from="wateringCan" to="wateringCan" method="_on_input_event"]

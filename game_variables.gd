@@ -9,23 +9,23 @@ var plantProperties = Array()
 enum Species {LadySlipper, Pasque, WildYam}
 enum Properties {currentState, species}
 
-const LadySlipperNextScene = {"potSoilFull.svg": "lsBaby.svg", 
-				"lsBaby.svg": "lsBud.svg", 
-				"lsBud.svg": "lsLeaves.svg",
-				"lsLeaves.svg": "lsFull.svg",
-				"lsFull.svg": "lsFull.svg"}
-const PasqueNextScene = {"potSoilFull.svg": "pasque1.svg", 
-				"pasque1.svg": "pasque2.svg", 
-				"pasque2.svg": "pasque3.svg", 
-				"pasque3.svg": "pasqueFull.svg",
-				"pasqueFull.svg": "pasqueFull.svg"}
-const WildYamNextScene = {"potSoilFull.svg": "wildYam1.svg", 
-				"wildYam1.svg": "wildYam2.svg", 
-				"wildYam2.svg": "wildYam3.svg", 
-				"wildYam3.svg": "wildYamFull.svg",
-				"wildYamFull.svg": "wildYamFull.svg"}
+const LadySlipperNextScene = {"ladySlipper/ladySlipper0.svg": "ladySlipper/ladySlipper1.svg", 
+				"ladySlipper/ladySlipper1.svg": "ladySlipper/ladySlipper2.svg", 
+				"ladySlipper/ladySlipper2.svg": "ladySlipper/ladySlipper3.svg",
+				"ladySlipper/ladySlipper3.svg": "ladySlipper/ladySlipper4.svg",
+				"ladySlipper/ladySlipper4.svg": "ladySlipper/ladySlipper4.svg"}
+const PasqueNextScene = {"pasque/pasque0.svg": "pasque/pasque1.svg", 
+				"pasque/pasque1.svg": "pasque/pasque2.svg", 
+				"pasque/pasque2.svg": "pasque/pasque3.svg", 
+				"pasque/pasque3.svg": "pasque/pasque4.svg",
+				"pasque/pasque4.svg": "pasque/pasque4.svg"}
+const WildYamNextScene = {"wildYam/wildYam0.svg": "wildYam/wildYam1.svg", 
+				"wildYam/wildYam1.svg": "wildYam/wildYam2.svg", 
+				"wildYam/wildYam2.svg": "wildYam/wildYam3.svg", 
+				"wildYam/wildYam3.svg": "wildYam/wildYam4.svg",
+				"wildYam/wildYam4.svg": "wildYam/wildYam4.svg"}
 								
-const Base = "res://art/workbenchScreen/"
+const Base = "res://art/plant/"
 const NextScene = {Species.LadySlipper : LadySlipperNextScene, Species.Pasque : PasqueNextScene, Species.WildYam : WildYamNextScene}
 
 
