@@ -15,12 +15,13 @@ func _ready():
 		pot.name = "Pot" + str(x + 1)
 		pot.position = PotPosition[x]
 		pot.number = x
+		
 		if (x % 3 == 0):
-			GameVariables.plantProperties.append({GameVariables.Properties.currentState: "ladySlipper/ladySlipper0.svg", GameVariables.Properties.species: GameVariables.Species.LadySlipper})
+			GameVariables.plantStates.append(GameVariables.ladySlipperInitialState)
 		elif (x % 3 == 1):
-			GameVariables.plantProperties.append({GameVariables.Properties.currentState: "pasque/pasque0.svg", GameVariables.Properties.species: GameVariables.Species.Pasque})
+			GameVariables.plantStates.append(GameVariables.pasqueInitialState)
 		elif (x % 3 == 2):
-			GameVariables.plantProperties.append({GameVariables.Properties.currentState: "wildYam/wildYam0.svg", GameVariables.Properties.species: GameVariables.Species.WildYam})
+			GameVariables.plantStates.append(GameVariables.wildYamInitialState)
 		self.add_child(pot)
 	pass # Replace with function body.
 
