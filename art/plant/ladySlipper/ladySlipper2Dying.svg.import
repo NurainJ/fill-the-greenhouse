@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d24e0fgvartmi"
-path="res://.godot/imported/wildYam0.svg-153cb3fb257d1acfdb618b6d65af1171.ctex"
+uid="uid://bh3txvf5mwups"
+path="res://.godot/imported/ladySlipper2Dying.svg-eef36eda7b107fbb3f03feab42cbfadd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/plant/wildYam/wildYam0.svg"
-dest_files=["res://.godot/imported/wildYam0.svg-153cb3fb257d1acfdb618b6d65af1171.ctex"]
+source_file="res://art/plant/ladySlipper/ladySlipper2Dying.svg"
+dest_files=["res://.godot/imported/ladySlipper2Dying.svg-eef36eda7b107fbb3f03feab42cbfadd.ctex"]
 
 [params]
 

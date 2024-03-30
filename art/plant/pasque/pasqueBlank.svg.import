@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d24e0fgvartmi"
-path="res://.godot/imported/wildYam0.svg-153cb3fb257d1acfdb618b6d65af1171.ctex"
+uid="uid://bvb48smuq0n33"
+path="res://.godot/imported/pasqueBlank.svg-403dd8d75fe474329efe7009fd3f82c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/plant/wildYam/wildYam0.svg"
-dest_files=["res://.godot/imported/wildYam0.svg-153cb3fb257d1acfdb618b6d65af1171.ctex"]
+source_file="res://art/plant/pasque/pasqueBlank.svg"
+dest_files=["res://.godot/imported/pasqueBlank.svg-403dd8d75fe474329efe7009fd3f82c4.ctex"]
 
 [params]
 

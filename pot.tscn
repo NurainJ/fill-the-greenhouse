@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://pot.gd" id="1_3skoy"]
 [ext_resource type="Texture2D" uid="uid://bgdseqjefht8v" path="res://art/pot/pot.svg" id="2_4h1xs"]
 [ext_resource type="Texture2D" uid="uid://cew1cd44inmsb" path="res://art/pot/potSoilFull.svg" id="3_bpx1c"]
-[ext_resource type="Texture2D" uid="uid://bu6yx0oojimjp" path="res://art/plant/ladySlipper/ladySlipper0.svg" id="4_rb4ow"]
+[ext_resource type="Texture2D" uid="uid://dvc13pr1louco" path="res://art/plant/ladySlipper/ladySlipper0.svg" id="4_rb4ow"]
 
 [node name="Pot" type="Area2D"]
 script = ExtResource("1_3skoy")

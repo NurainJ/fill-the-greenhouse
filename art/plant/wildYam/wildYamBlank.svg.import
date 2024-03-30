@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d24e0fgvartmi"
-path="res://.godot/imported/wildYam0.svg-153cb3fb257d1acfdb618b6d65af1171.ctex"
+uid="uid://cpxv5ayesnjfq"
+path="res://.godot/imported/wildYamBlank.svg-f82e62513b6ae3f925426fc04514ad9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/plant/wildYam/wildYam0.svg"
-dest_files=["res://.godot/imported/wildYam0.svg-153cb3fb257d1acfdb618b6d65af1171.ctex"]
+source_file="res://art/plant/wildYam/wildYamBlank.svg"
+dest_files=["res://.godot/imported/wildYamBlank.svg-f82e62513b6ae3f925426fc04514ad9d.ctex"]
 
 [params]
 

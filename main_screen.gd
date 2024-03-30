@@ -17,13 +17,12 @@ func _ready():
 		pot.number = x
 		
 		if (x % 3 == 0):
-			GameVariables.plantStates.append(GameVariables.ladySlipperInitialState)
+			GameVariables.currentPlantStates.append(GameVariables.ladySlipperInitialState)
 		elif (x % 3 == 1):
-			GameVariables.plantStates.append(GameVariables.pasqueInitialState)
+			GameVariables.currentPlantStates.append(GameVariables.pasqueInitialState)
 		elif (x % 3 == 2):
-			GameVariables.plantStates.append(GameVariables.wildYamInitialState)
+			GameVariables.currentPlantStates.append(GameVariables.wildYamInitialState)
 		self.add_child(pot)
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
