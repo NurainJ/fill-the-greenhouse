@@ -5,17 +5,19 @@ var days_remaining = 20
 var activePlant = 0
 
 var plantStateClass = load("res://plant_state.gd")
-var currentPlantStates = Array()
+var plantStates = Array()
 var possiblePlantStates = {}
 
 enum Species {LadySlipper, Pasque, WildYam}
 
-const BasePath = "res://art/plant/"
 const speciesPaths = {Species.LadySlipper: "res://art/plant/ladySlipper/", Species.Pasque: "res://art/plant/pasque/", Species.WildYam: "res://art/plant/wildYam/"}
 
 var ladySlipperInitialState
 var pasqueInitialState
 var wildYamInitialState
+
+var soilPaths = Array()
+var possibleSoilPaths = ["res://art/pot/potSoilEmpty.svg", "res://art/pot/potSoilFull.svg", "res://art/pot/potSoilOverfull1.svg", "res://art/pot/potSoilOverfull2.svg"]
 
 var stateMachineData = {Species.LadySlipper: {
 							 "ladySlipper0": {"ladySlipper1": 0.5,                            "ladySlipperDead": 0.01}, 
@@ -73,6 +75,3 @@ func _ready():
 
 func _process(_delta):
 	pass
-
-func getNextScene(plantNumber: int) -> String:
-	return currentPlantStates[plantNumber].get_next_state().path

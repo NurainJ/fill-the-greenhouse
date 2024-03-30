@@ -1,5 +1,6 @@
 extends Node2D
 const PotResouce = preload("res://pot.tscn")
+
 const PotPosition = [
 	Vector2(-826, 154), 
 	Vector2(-602, 67), 
@@ -16,12 +17,14 @@ func _ready():
 		pot.position = PotPosition[x]
 		pot.number = x
 		
+		GameVariables.soilPaths.append(GameVariables.possibleSoilPaths[0])
 		if (x % 3 == 0):
-			GameVariables.currentPlantStates.append(GameVariables.ladySlipperInitialState)
+			GameVariables.plantStates.append(GameVariables.ladySlipperInitialState)
 		elif (x % 3 == 1):
-			GameVariables.currentPlantStates.append(GameVariables.pasqueInitialState)
+			GameVariables.plantStates.append(GameVariables.pasqueInitialState)
 		elif (x % 3 == 2):
-			GameVariables.currentPlantStates.append(GameVariables.wildYamInitialState)
+			GameVariables.plantStates.append(GameVariables.wildYamInitialState)
+		
 		self.add_child(pot)
 
 
@@ -31,5 +34,4 @@ func _process(_delta):
 
 
 func _on_button_pressed():
-	$Calendar.next_day()
 	$BlackScreen.fade_to_black()

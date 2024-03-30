@@ -3,6 +3,7 @@ extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Label.set_text(str(GameVariables.days_remaining))
+	get_parent().get_node("BlackScreen/BlackScreenPlayer").connect("is_black", next_day.bind())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

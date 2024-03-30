@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfsgyfhoha24k"
-path="res://.godot/imported/workbenchBackgroundTemp.svg-74c09f02012c6cfeb37c6f227e48d6e9.ctex"
+uid="uid://d2h2cxc7uvunt"
+path="res://.godot/imported/soilBag.svg-bb5d60854db414f2920aa11ff5165c85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/workbenchScreen/workbenchBackgroundTemp.svg"
-dest_files=["res://.godot/imported/workbenchBackgroundTemp.svg-74c09f02012c6cfeb37c6f227e48d6e9.ctex"]
+source_file="res://art/workbenchScreen/soilBag.svg"
+dest_files=["res://.godot/imported/soilBag.svg-bb5d60854db414f2920aa11ff5165c85.ctex"]
 
 [params]
 

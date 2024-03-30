@@ -5,7 +5,8 @@ var number : int;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$plant.set_texture(load(GameVariables.currentPlantStates[number].path))
+	$plant.set_texture(load(GameVariables.plantStates[number].path))
+	$soil.set_texture(load(GameVariables.soilPaths[number]))
 	get_parent().get_node("BlackScreen/BlackScreenPlayer").connect("is_black", _animation_finished.bind())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,5 +22,5 @@ func _on_input_event(_viewport, event, _shape_idx):
 
 
 func _animation_finished():
-	GameVariables.currentPlantStates[number] = GameVariables.currentPlantStates[number].get_next_state()
-	$plant.set_texture(load(GameVariables.currentPlantStates[number].path))
+	GameVariables.plantStates[number] = GameVariables.plantStates[number].get_next_state()
+	$plant.set_texture(load(GameVariables.plantStates[number].path))
