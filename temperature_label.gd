@@ -12,13 +12,15 @@ func _process(delta):
 	pass
 
 func increase_temp():
-	GameVariables.temperature += 1
-	set_text(str(GameVariables.temperature))
+	if GameVariables.temperature < 99:
+		GameVariables.temperature += 1
+		set_text(str(GameVariables.temperature))
 
 
 func decrease_temp():
-	GameVariables.temperature -= 1
-	set_text(str(GameVariables.temperature))
+	if GameVariables.temperature > 32:
+		GameVariables.temperature -= 1
+		set_text(str(GameVariables.temperature))
 	
 
 func _on_up_button_input_event(viewport, event, shape_idx):
