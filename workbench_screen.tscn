@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cal3i4ptukm7r"]
+[gd_scene load_steps=22 format=3 uid="uid://cal3i4ptukm7r"]
 
 [ext_resource type="Texture2D" uid="uid://bx73fkc7ng2p" path="res://art/workbenchScreen/workbenchBackground.svg" id="1_4fkqx"]
 [ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="3_8qao5"]
@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://lb7trutewhlx" path="res://art/workbenchScreen/shovel.svg" id="9_4222s"]
 [ext_resource type="Texture2D" uid="uid://dkfu1pcrq02be" path="res://art/workbenchScreen/shovelSoil.svg" id="10_ikdqk"]
 [ext_resource type="Script" path="res://shovel.gd" id="10_x3yoa"]
-[ext_resource type="Texture2D" uid="uid://d2h2cxc7uvunt" path="res://art/workbenchScreen/soilBag.svg" id="11_h0532"]
+[ext_resource type="Texture2D" uid="uid://ilkp4dyntbng" path="res://art/workbenchScreen/soilBagSoil.svg" id="11_57c1x"]
+[ext_resource type="Texture2D" uid="uid://bfw5lk43a8pxt" path="res://art/workbenchScreen/soilBag.svg" id="11_h0532"]
 
 [sub_resource type="Animation" id="Animation_br3cn"]
 length = 0.001
@@ -400,6 +401,10 @@ z_index = 1
 position = Vector2(960, 540)
 script = ExtResource("3_cmqpq")
 
+[node name="soilBag" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("11_h0532")
+
 [node name="shovel" type="Area2D" parent="."]
 position = Vector2(1600, 870)
 script = ExtResource("10_x3yoa")
@@ -421,9 +426,9 @@ libraries = {
 "": SubResource("AnimationLibrary_rt1o3")
 }
 
-[node name="soilBag" type="Sprite2D" parent="."]
+[node name="soilBagSoil" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("11_h0532")
+texture = ExtResource("11_57c1x")
 
 [connection signal="input_event" from="BackButton" to="plant" method="_on_back_button_input_event"]
 [connection signal="input_event" from="wateringCan" to="wateringCan" method="_on_input_event"]
