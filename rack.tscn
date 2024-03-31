@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1rml3872ffkl"]
+
+[ext_resource type="Texture2D" uid="uid://frxi6fayhqky" path="res://art/rackSceen/seedRackBackground.svg" id="1_w62r0"]
+[ext_resource type="PackedScene" uid="uid://c0ntcpvg1x3m6" path="res://packet.tscn" id="2_5nmaf"]
+[ext_resource type="Texture2D" uid="uid://bfillth85d8qe" path="res://art/rackSceen/pasquePacket.svg" id="2_p82fr"]
+[ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="2_sulch"]
+[ext_resource type="Texture2D" uid="uid://dcvrurdkjt3vh" path="res://art/rackSceen/shelf2.svg" id="4_n3cos"]
+[ext_resource type="Texture2D" uid="uid://c5la40kpam8rx" path="res://art/rackSceen/wildYamPacket.svg" id="5_44bfy"]
+[ext_resource type="Texture2D" uid="uid://c0a77m0h12taq" path="res://art/rackSceen/shelf1.svg" id="7_3qhyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5dok"]
+size = Vector2(479, 705.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="rackBackground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_w62r0")
+
+[node name="pasquePacket" type="Area2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+
+[node name="pasquePacketSprite" type="Sprite2D" parent="pasquePacket"]
+texture = ExtResource("2_p82fr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pasquePacket"]
+position = Vector2(8.5, -20.75)
+shape = SubResource("RectangleShape2D_r5dok")
+
+[node name="BackButton" parent="." instance=ExtResource("2_sulch")]
+
+[node name="shelf2" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("4_n3cos")
+
+[node name="wildYamPacket" type="Area2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+
+[node name="wildYamPacketSprite" type="Sprite2D" parent="wildYamPacket"]
+texture = ExtResource("5_44bfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wildYamPacket"]
+position = Vector2(8.5, -20.75)
+shape = SubResource("RectangleShape2D_r5dok")
+
+[node name="packet" parent="." instance=ExtResource("2_5nmaf")]
+
+[node name="shelf1" type="Sprite2D" parent="."]
+position = Vector2(958, 540)
+texture = ExtResource("7_3qhyi")

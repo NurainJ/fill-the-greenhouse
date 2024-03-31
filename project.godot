@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.2", "Mobile")
 
 SceneSwitcher="*res://scene_switcher.gd"
 GameVariables="*res://game_variables.gd"
+SwipeDetector="*res://swipe_detector.gd"
 
 [display]
 

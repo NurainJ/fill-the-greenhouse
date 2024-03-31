@@ -18,7 +18,7 @@ func update_thermometer():
 	set_text(str(GameVariables.temperature))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func increase_temp():
@@ -34,11 +34,11 @@ func decrease_temp():
 		update_thermometer()
 	
 
-func _on_up_button_input_event(viewport, event, shape_idx):
+func _on_up_button_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		increase_temp()
 
 
-func _on_down_button_input_event(viewport, event, shape_idx):
+func _on_down_button_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		decrease_temp()

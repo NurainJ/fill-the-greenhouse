@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1kb8arcepkmn"
-path="res://.godot/imported/seedBoxBackgroundTemp.svg-42c092781114f32ff65543f1c2b5bdd4.ctex"
+uid="uid://ctncs7tsh07fy"
+path="res://.godot/imported/ladySlipperPacketSmall.svg-14938d6f02c1c84679395a880c6f0817.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/seedBoxScreen/seedBoxBackgroundTemp.svg"
-dest_files=["res://.godot/imported/seedBoxBackgroundTemp.svg-42c092781114f32ff65543f1c2b5bdd4.ctex"]
+source_file="res://art/workbenchScreen/ladySlipperPacketSmall.svg"
+dest_files=["res://.godot/imported/ladySlipperPacketSmall.svg-14938d6f02c1c84679395a880c6f0817.ctex"]
 
 [params]
 
