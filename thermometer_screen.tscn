@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkpxamh3cujkk"]
+[gd_scene load_steps=9 format=3 uid="uid://dkpxamh3cujkk"]
 
 [ext_resource type="Texture2D" uid="uid://b7b14k55ua558" path="res://art/thermometerScreen/thermometerBackground.svg" id="2_4wljp"]
 [ext_resource type="FontFile" uid="uid://bmuiint7t2i05" path="res://fonts/thermometerFont.ttf" id="3_rbrpg"]
 [ext_resource type="Script" path="res://temperature_label.gd" id="4_sd1gr"]
 [ext_resource type="Texture2D" uid="uid://uhwcyk0n1ind" path="res://art/thermometerScreen/thermometerUpButton.svg" id="5_bb2t5"]
+[ext_resource type="Texture2D" uid="uid://dqp20qxtlyo1w" path="res://art/thermometerScreen/ThermometerBulb.svg" id="6_vqexe"]
 [ext_resource type="Texture2D" uid="uid://bp8bn71a5kyqr" path="res://art/thermometerScreen/thermometerDownButton.svg" id="6_y37g7"]
-[ext_resource type="Texture2D" uid="uid://dt1fxc7ivrbns" path="res://art/thermometerScreen/thermometerFill.svg" id="7_205dk"]
+[ext_resource type="Texture2D" uid="uid://r8oqw1if4x3b" path="res://art/thermometerScreen/thermometerFill.svg" id="7_205dk"]
 [ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="7_kwyhr"]
 
 [node name="ThermometerScreen" type="Node2D"]
@@ -50,8 +51,12 @@ polygon = PackedVector2Array(1020, 759, 1429, 759, 1224, 910)
 [node name="ThermometerFill" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+texture = ExtResource("6_vqexe")
+
+[node name="ThermometerMoving" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("7_205dk")
-metadata/_edit_lock_ = true
 
 [node name="BackButton" parent="." instance=ExtResource("7_kwyhr")]
 
