@@ -49,7 +49,7 @@ position = Vector2(961, 540)
 texture = ExtResource("3_nimvq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thermometer"]
-position = Vector2(144, 187)
+position = Vector2(144, 278)
 shape = SubResource("CapsuleShape2D_7cwhq")
 
 [node name="BackButton" parent="." instance=ExtResource("5_d8l18")]
@@ -62,13 +62,14 @@ position = Vector2(960, 540)
 texture = ExtResource("7_csqsa")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Calendar"]
+position = Vector2(0, 104)
 polygon = PackedVector2Array(248, 120, 404, 106, 404, 254, 248, 275)
 
 [node name="Label" type="Label" parent="Calendar"]
-offset_left = 272.0
-offset_top = 156.0
-offset_right = 371.0
-offset_bottom = 247.0
+offset_left = 274.0
+offset_top = 257.0
+offset_right = 373.0
+offset_bottom = 348.0
 rotation = -0.141372
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_mcc1s")
