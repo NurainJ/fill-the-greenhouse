@@ -3,7 +3,13 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var currentSpecies = GameVariables.plantStates[GameVariables.activePlant].species
+	if currentSpecies == GameVariables.Species.Pasque:
+		$pasquePacket.visible = true
+	elif currentSpecies == GameVariables.Species.WildYam:
+		$wildYamPacket.visible = true
+	else:
+		$ladySlipperPacket.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

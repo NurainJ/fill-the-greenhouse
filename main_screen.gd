@@ -18,12 +18,7 @@ func _ready():
 		pot.number = x
 		
 		GameVariables.soilPaths.append(GameVariables.possibleSoilPaths[0])
-		if (x % 3 == 0):
-			GameVariables.plantStates.append(GameVariables.ladySlipperInitialState)
-		elif (x % 3 == 1):
-			GameVariables.plantStates.append(GameVariables.pasqueInitialState)
-		elif (x % 3 == 2):
-			GameVariables.plantStates.append(GameVariables.wildYamInitialState)
+		GameVariables.plantStates.append(GameVariables.ladySlipperInitialState)
 		
 		self.add_child(pot)
 

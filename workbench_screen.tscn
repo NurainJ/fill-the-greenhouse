@@ -446,14 +446,17 @@ script = ExtResource("16_qo0tw")
 [node name="rackSprite" type="Sprite2D" parent="rack"]
 texture = ExtResource("16_umgdm")
 
-[node name="ladySlipperPacket" type="Sprite2D" parent="rack"]
-texture = ExtResource("17_j7hik")
-
 [node name="pasquePacket" type="Sprite2D" parent="rack"]
+visible = false
 texture = ExtResource("18_pvg6a")
 
 [node name="wildYamPacket" type="Sprite2D" parent="rack"]
+visible = false
 texture = ExtResource("19_vvndw")
+
+[node name="ladySlipperPacket" type="Sprite2D" parent="rack"]
+visible = false
+texture = ExtResource("17_j7hik")
 
 [node name="shelf1" type="Sprite2D" parent="rack"]
 texture = ExtResource("20_bor8v")
