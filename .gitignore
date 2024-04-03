@@ -16,6 +16,7 @@ mono_crash.*.json
 
 #MacOS File System Management
 .DS_Store
+export/
 iOS/Packaging.log
 iOS/MoltenVK.xcframework/ios-arm64_x86_64-simulator/libMoltenVK.a
 iOS/MoltenVK.xcframework/ios-arm64_x86_64-maccatalyst/libMoltenVK.a

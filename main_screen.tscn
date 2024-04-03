@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbmq3p3y4g2lr"]
+[gd_scene load_steps=14 format=3 uid="uid://bbmq3p3y4g2lr"]
 
 [ext_resource type="Texture2D" uid="uid://bxr1m41ivo7u7" path="res://art/mainScreen/mainScreen.svg" id="1_dxj4q"]
 [ext_resource type="Texture2D" uid="uid://brifn2vvwth7e" path="res://art/mainScreen/mainScreenTemp.svg" id="1_la1a6"]
@@ -9,16 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="5_d8l18"]
 [ext_resource type="Script" path="res://calendar.gd" id="6_pl254"]
 [ext_resource type="Texture2D" uid="uid://b1yojfu3dia8f" path="res://art/mainScreen/calendar.svg" id="7_csqsa"]
-[ext_resource type="Texture2D" uid="uid://bm4ffmph61m6b" path="res://art/mainScreen/shelf.svg" id="8_l8u77"]
 [ext_resource type="FontFile" uid="uid://bajqxy8ti2t5o" path="res://fonts/calendarFont.ttf" id="8_mcc1s"]
-[ext_resource type="Script" path="res://seed_box.gd" id="9_gwuhr"]
-[ext_resource type="Texture2D" uid="uid://c50xtuuhg75it" path="res://art/mainScreen/seedBox.svg" id="10_chgr0"]
 [ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="13_sioij"]
 [ext_resource type="PackedScene" uid="uid://chja3jifya2yp" path="res://black_screen.tscn" id="15_s6ion"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cwhq"]
 radius = 28.0
-height = 128.0
+height = 144.0
 
 [node name="MainScreen" type="Node2D"]
 script = ExtResource("1_oresb")
@@ -49,7 +46,7 @@ position = Vector2(961, 540)
 texture = ExtResource("3_nimvq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thermometer"]
-position = Vector2(144, 278)
+position = Vector2(146, 291)
 shape = SubResource("CapsuleShape2D_7cwhq")
 
 [node name="BackButton" parent="." instance=ExtResource("5_d8l18")]
@@ -78,20 +75,6 @@ text = "20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Shelf" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("8_l8u77")
-
-[node name="SeedBox" type="Area2D" parent="."]
-script = ExtResource("9_gwuhr")
-
-[node name="Sprite2D" type="Sprite2D" parent="SeedBox"]
-position = Vector2(950, 540)
-texture = ExtResource("10_chgr0")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SeedBox"]
-polygon = PackedVector2Array(89, 318, 93, 404, 136, 407, 239, 395, 243, 313, 183, 309)
-
 [node name="NextDay" type="Button" parent="."]
 offset_left = 1658.0
 offset_top = 996.0
@@ -106,5 +89,4 @@ text = "Next Day"
 [connection signal="input_event" from="Thermometer" to="Thermometer" method="_on_input_event"]
 [connection signal="mouse_entered" from="Thermometer" to="Thermometer" method="_on_mouse_entered"]
 [connection signal="input_event" from="Calendar" to="Calendar" method="_on_input_event"]
-[connection signal="input_event" from="SeedBox" to="SeedBox" method="_on_input_event"]
 [connection signal="pressed" from="NextDay" to="." method="_on_button_pressed"]

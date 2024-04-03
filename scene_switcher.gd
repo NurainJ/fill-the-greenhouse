@@ -6,7 +6,7 @@ var previous_scene = {
 	"res://main_screen.tscn": "res://start_screen.tscn", 
 	"res://calendar_screen.tscn": "res://main_screen.tscn", 
 	"res://thermometer_screen.tscn": "res://main_screen.tscn", 
-	"res://rack.tscn": "res://main_screen.tscn", 
+	"res://rack.tscn": "res://workbench_screen.tscn", 
 	"res://workbench_screen.tscn": "res://main_screen.tscn"}
 
 # Called when the node enters the scene tree for the first time.
