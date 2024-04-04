@@ -12,11 +12,11 @@
 	</style>
 	<g id="Wall items">
 		<g id="Thin line thermometer">
-			<use id="Thermometer dimension" href="#img1" x="121" y="226"/>
-			<use id="Thermometer background" href="#img2" x="122" y="226"/>
-			<use id="Thermometer fill" href="#img3" x="125" y="301"/>
-			<use id="Thermometer moving fill" href="#img4" x="134" y="251"/>
-			<use id="Thermometer outline" href="#img5" x="121" y="226"/>
+			<use id="Thermometer dimension" href="#img1" x="119" y="185"/>
+			<use id="Thermometer background" href="#img2" x="120" y="185"/>
+			<use id="Thermometer fill" href="#img3" x="123" y="260"/>
+			<use id="Thermometer moving fill" href="#img4" x="132" y="210"/>
+			<use id="Thermometer outline" href="#img5" x="119" y="185"/>
 		</g>
 	</g>
 </svg>

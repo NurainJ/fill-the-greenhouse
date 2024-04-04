@@ -8,7 +8,9 @@
 		tspan { white-space:pre } 
 	</style>
 	<g id="Wall items">
-		<use id="Thin line Calendar" href="#img1" x="253" y="214"/>
-		<use id="days remaining" href="#img2" x="262" y="329"/>
+		<g id="Thin line calendar">
+			<use id="Thin line Calendar" href="#img1" x="245" y="144"/>
+			<use id="days remaining" href="#img2" x="254" y="259"/>
+		</g>
 	</g>
 </svg>
