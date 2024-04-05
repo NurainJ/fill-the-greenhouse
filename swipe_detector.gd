@@ -23,7 +23,6 @@ func _calculate_swipe(swipe_end):
 			emit_signal("swipeRight")
 		else:
 			emit_signal("swipeLeft")
-			print("left")
 		return true
 	else:
 		return false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cal3i4ptukm7r"]
+[gd_scene load_steps=33 format=3 uid="uid://cal3i4ptukm7r"]
 
 [ext_resource type="Texture2D" uid="uid://bx73fkc7ng2p" path="res://art/workbenchScreen/workbenchBackground.svg" id="1_4fkqx"]
 [ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="3_8qao5"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cddi5cbqn6lgm" path="res://art/workbenchScreen/rackSmall.svg" id="16_umgdm"]
 [ext_resource type="Texture2D" uid="uid://ctncs7tsh07fy" path="res://art/workbenchScreen/ladySlipperPacketSmall.svg" id="17_j7hik"]
 [ext_resource type="Texture2D" uid="uid://mc05ngay7f7x" path="res://art/workbenchScreen/pasquePacketSmall.svg" id="18_pvg6a"]
+[ext_resource type="Texture2D" uid="uid://dbnr1r63b5x1f" path="res://art/plant/pasque/pasque0.svg" id="19_hwijn"]
 [ext_resource type="Texture2D" uid="uid://cjgimuhcc8hyx" path="res://art/workbenchScreen/wildYamPacketSmall.svg" id="19_vvndw"]
 [ext_resource type="Texture2D" uid="uid://nxufyvug70bu" path="res://art/workbenchScreen/shelf1Small.svg" id="20_bor8v"]
 
@@ -353,6 +354,259 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptitu"]
 size = Vector2(311, 379)
 
+[sub_resource type="Animation" id="Animation_bp6fn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pasquePacket/pasquePacket:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pasqueSeeds:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("wildYamPacket:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ladySlipperPacket:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("pasquePacket/pasquePacket:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("pasquePacket:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-500, 275)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("pasquePacket:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("pasqueSeeds:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -410)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("pasqueSeeds:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("pasquePacket:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_htqo5"]
+resource_name = "plant_pasque"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pasquePacket/pasquePacket:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pasqueSeeds:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("wildYamPacket:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ladySlipperPacket:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("pasquePacket/pasquePacket:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("pasquePacket:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 2.9, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-500, 275), Vector2(-280, 2), Vector2(-280, 2), Vector2(-500, 275)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("pasquePacket:rotation")
+tracks/6/interp = 3
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.4, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.785398, 0.785398, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("pasqueSeeds:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.5, 2.1, 2.5, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(56, -372), Vector2(80, -278), Vector2(40, -130), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("pasqueSeeds:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.5, 1.8, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.523599, 0.523599, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("pasquePacket:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqkb4"]
+_data = {
+"RESET": SubResource("Animation_bp6fn"),
+"plant_pasque": SubResource("Animation_htqo5")
+}
+
 [node name="WorkbenchScreen" type="Node2D"]
 
 [node name="WorkbenchBackground" type="TextureRect" parent="."]
@@ -446,9 +700,20 @@ script = ExtResource("16_qo0tw")
 [node name="rackSprite" type="Sprite2D" parent="rack"]
 texture = ExtResource("16_umgdm")
 
-[node name="pasquePacket" type="Sprite2D" parent="rack"]
+[node name="pasquePacket" type="Node2D" parent="rack"]
 visible = false
+position = Vector2(-500, 275)
+
+[node name="pasquePacket" type="Sprite2D" parent="rack/pasquePacket"]
+visible = false
+position = Vector2(500, -275)
 texture = ExtResource("18_pvg6a")
+
+[node name="pasqueSeeds" type="Sprite2D" parent="rack"]
+visible = false
+position = Vector2(0, -410)
+rotation = -0.785398
+texture = ExtResource("19_hwijn")
 
 [node name="wildYamPacket" type="Sprite2D" parent="rack"]
 visible = false
@@ -464,6 +729,11 @@ texture = ExtResource("20_bor8v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rack"]
 position = Vector2(-517, 276)
 shape = SubResource("RectangleShape2D_ptitu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rack"]
+libraries = {
+"": SubResource("AnimationLibrary_kqkb4")
+}
 
 [connection signal="input_event" from="BackButton" to="plant" method="_on_back_button_input_event"]
 [connection signal="input_event" from="wateringCan" to="wateringCan" method="_on_input_event"]

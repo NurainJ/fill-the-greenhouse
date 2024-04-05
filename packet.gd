@@ -34,11 +34,12 @@ func _on_input_event(viewport, event, _shape_idx):
 			$AnimationPlayer.play("foreground")
 
 func swipe_right(): 
-	$AnimationPlayer.play("swipe_right")
-	await $AnimationPlayer.animation_finished
-	GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
-	SceneSwitcher.set_scene("res://workbench_screen.tscn")
-	queue_free()
+	if order == 1:
+		$AnimationPlayer.play("swipe_right")
+		await $AnimationPlayer.animation_finished
+		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
+		SceneSwitcher.set_scene("res://workbench_screen.tscn")
+		#queue_free()
 	
 func swipe_left():
 	if order == 1:
