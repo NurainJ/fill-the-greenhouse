@@ -50,7 +50,11 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_6b2c7")
 theme_override_font_sizes/font_size = 50
-text = "We can write user instructions here!   :D"
+text = "Welcome to Fill The Greenhourse!
+To being, press \"Play\" and start off by choosing a pot.
+Then, add some soil into the pot and choose a seed packet.
+Make sure to water your plants daily and watch them grow!"
+horizontal_alignment = 1
 
 [node name="Music & SFX" type="TabBar" parent="TabContainer"]
 visible = false
