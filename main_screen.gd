@@ -9,6 +9,7 @@ const PotPosition = [
 	Vector2(260, -6), 
 	Vector2(595, 65), 
 	Vector2(814, 154)]
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for x in range(7):

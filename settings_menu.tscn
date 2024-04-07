@@ -29,7 +29,7 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 30
 
-[node name="StartScreen" type="Sprite2D" parent="MarginContainer"]
+[node name="StartScreenBackground" type="Sprite2D" parent="MarginContainer"]
 position = Vector2(956, 540)
 texture = ExtResource("2_u3sac")
 

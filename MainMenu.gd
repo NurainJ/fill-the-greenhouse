@@ -10,7 +10,6 @@ extends Control
 
 #@onready var start_game = preload("res://main_screen.tscn") as PackedScene
 
-
 func _ready():
 	handle_connecting_signals()
 	
