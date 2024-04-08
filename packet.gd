@@ -23,15 +23,15 @@ func _process(_delta):
 
 func _on_input_event(viewport, event, _shape_idx):
 	if event is InputEventMouseButton and !event.pressed and !SwipeDetector._calculate_swipe(viewport.get_mouse_position()):
-		if active:
+		if order == 1:
+			$AnimationPlayer.play("foreground")
+			await $AnimationPlayer.animation_finished
 			if frontShowing:
 				$AnimationPlayer.play("flip_backward")
 			else:
 				$AnimationPlayer.play("flip_forward")
 			frontShowing = !frontShowing
-		elif order == 1:
-			active = true
-			$AnimationPlayer.play("foreground")
+			
 
 func swipe_right(): 
 	if order == 1:

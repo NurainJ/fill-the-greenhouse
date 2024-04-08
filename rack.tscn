@@ -24,12 +24,18 @@ species = 1
 [node name="packetSprite" parent="pasquePacket" index="0"]
 texture = ExtResource("2_p82fr")
 
+[node name="CollisionShape2D" parent="pasquePacket" index="2"]
+position = Vector2(7, -119.5)
+
 [node name="wildYamPacket" parent="." instance=ExtResource("2_5nmaf")]
 order = 2
 species = 2
 
 [node name="packetSprite" parent="wildYamPacket" index="0"]
 texture = ExtResource("5_44bfy")
+
+[node name="CollisionShape2D" parent="wildYamPacket" index="2"]
+position = Vector2(8.5, -103.906)
 
 [node name="shelf2" type="Sprite2D" parent="."]
 z_index = 3
@@ -38,6 +44,9 @@ texture = ExtResource("4_n3cos")
 
 [node name="ladySlipperPacket" parent="." instance=ExtResource("2_5nmaf")]
 order = 1
+
+[node name="CollisionShape2D" parent="ladySlipperPacket" index="2"]
+position = Vector2(10, -97)
 
 [node name="shelf1" type="Sprite2D" parent="."]
 z_index = 5
