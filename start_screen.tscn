@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="3_ndknm"]
 [ext_resource type="Script" path="res://MainMenu.gd" id="4_mj3ep"]
 [ext_resource type="PackedScene" uid="uid://dsbhu632ftpa2" path="res://settings_menu.tscn" id="6_gr253"]
-[ext_resource type="AudioStream" uid="uid://cpyqa323k86qw" path="res://sounds/[EDITED] The Tourist 30 Minutes.mp3" id="7_chs47"]
+[ext_resource type="PackedScene" uid="uid://ipr0af8jad1x" path="res://music_stream_player.tscn" id="7_mmmx7"]
 
 [node name="StartScreen" type="CanvasLayer"]
 layer = 2
@@ -169,10 +169,6 @@ text = "Exit Game"
 visible = false
 layout_mode = 1
 
-[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="MainMenu"]
-stream = ExtResource("7_chs47")
-volume_db = -14.0
-autoplay = true
-bus = &"Music"
+[node name="MusicStreamPlayer" parent="MainMenu" instance=ExtResource("7_mmmx7")]
 
 [connection signal="pressed" from="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
