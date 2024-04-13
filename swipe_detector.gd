@@ -11,18 +11,17 @@ func _unhandled_input(event):
 		swipe_start = get_viewport().get_mouse_position()
 	elif event is InputEventMouseButton and !event.pressed:
 		_calculate_swipe(get_viewport().get_mouse_position())
-	#else:
-		#swipe_start = null
 		
 func _calculate_swipe(swipe_end):
-	if swipe_start == null:
-		return false
-	var swipeDistance = swipe_end - swipe_start
-	if abs(swipeDistance.x) > minimum_drag:
-		if swipeDistance.x > 0:
-			emit_signal("swipeRight")
+	if GameVariables.current_scene == "res://rack_screen.tscn":
+		if swipe_start == null:
+			return false
+		var swipeDistance = swipe_end - swipe_start
+		if abs(swipeDistance.x) > minimum_drag:
+			if swipeDistance.x > 0:
+				emit_signal("swipeRight")
+			else:
+				emit_signal("swipeLeft")
+			return true
 		else:
-			emit_signal("swipeLeft")
-		return true
-	else:
-		return false
+			return false
