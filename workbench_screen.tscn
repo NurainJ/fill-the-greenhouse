@@ -595,9 +595,14 @@ position = Vector2(960, 540)
 texture = ExtResource("24_517bm")
 script = ExtResource("3_cmqpq")
 
-[node name="soilBag" type="Sprite2D" parent="."]
+[node name="soilBag" type="Area2D" parent="."]
 position = Vector2(960, 540)
+
+[node name="soilBag" type="Sprite2D" parent="soilBag"]
 texture = ExtResource("11_h0532")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="soilBag"]
+polygon = PackedVector2Array(-762, -312, -803, 18, -334, 17, -410, -314)
 
 [node name="shovel" type="Area2D" parent="."]
 position = Vector2(1600, 870)
@@ -619,10 +624,6 @@ texture = ExtResource("10_ikdqk")
 libraries = {
 "": SubResource("AnimationLibrary_rt1o3")
 }
-
-[node name="soilBagSoil" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("11_57c1x")
 
 [node name="rack" type="Area2D" parent="."]
 position = Vector2(960, 540)
@@ -663,9 +664,22 @@ libraries = {
 "": SubResource("AnimationLibrary_kqkb4")
 }
 
+[node name="soilBagSoil" type="Area2D" parent="."]
+
+[node name="soilBagSoilSprite" type="Sprite2D" parent="soilBagSoil"]
+position = Vector2(960, 540)
+texture = ExtResource("11_57c1x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="soilBagSoil"]
+polygon = PackedVector2Array(214, 224, 219, 481, 554, 479, 521, 224)
+
 [connection signal="input_event" from="BackButton" to="plant" method="_on_back_button_input_event"]
 [connection signal="input_event" from="wateringCan" to="wateringCan" method="_on_input_event"]
 [connection signal="animation_finished" from="wateringCan/AnimationPlayer" to="wateringCan" method="_on_animation_player_animation_finished"]
 [connection signal="input_event" from="shovel" to="shovel" method="_on_input_event"]
+[connection signal="mouse_entered" from="shovel" to="." method="_on_shovel_mouse_entered"]
+[connection signal="mouse_exited" from="shovel" to="." method="_on_shovel_mouse_exited"]
 [connection signal="animation_finished" from="shovel/AnimationPlayer" to="shovel" method="_on_animation_player_animation_finished"]
 [connection signal="input_event" from="rack" to="rack" method="_on_input_event"]
+[connection signal="mouse_entered" from="soilBagSoil" to="." method="_on_soil_bag_soil_mouse_entered"]
+[connection signal="mouse_exited" from="soilBagSoil" to="." method="_on_soil_bag_soil_mouse_exited"]

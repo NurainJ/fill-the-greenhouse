@@ -22,7 +22,6 @@ func _ready():
 	for scene in sceneNames:
 		remove_child(sceneNames[scene])
 	add_child(sceneNames[current_scene])
-	
 
 func add_scene(path):
 	add_child(sceneNames[path])

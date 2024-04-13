@@ -1,5 +1,6 @@
 extends Node2D
 const PotResouce = preload("res://pot.tscn")
+var isInitialized = false
 
 const PotPosition = [
 	Vector2(-826, 154), 
@@ -12,16 +13,17 @@ const PotPosition = [
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if !isInitialized:
+		initializePots()
+	for i in range(7):
+		get_node("Pot" + str(i)).update()
+
+func initializePots():
 	for x in range(7):
-		var pot = PotResouce.instantiate()
-		pot.name = "Pot" + str(x + 1)
-		pot.position = PotPosition[x]
-		pot.number = x
-		
-		GameVariables.soilPaths.append(GameVariables.possibleSoilPaths[0])
-		GameVariables.plantStates.append(GameVariables.initialStates[GameVariables.Species.LadySlipper])
-		
-		self.add_child(pot)
+			GameVariables.soilPaths.append(GameVariables.possibleSoilPaths[0])
+			GameVariables.plantStates.append(GameVariables.initialStates[GameVariables.Species.LadySlipper])
+			
+	isInitialized = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

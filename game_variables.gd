@@ -17,7 +17,6 @@ var initialStates = {}
 var soilPaths = Array()
 var possibleSoilPaths = ["res://art/pot/potSoilEmpty.svg", "res://art/pot/potSoilFull.svg", "res://art/pot/potSoilOverfull1.svg", "res://art/pot/potSoilOverfull2.svg"]
 
-var currentPacket: Species
 var smallPacketPaths = {Species.LadySlipper: "res://art/workbenchScreen/ladySlipperPacketSmall.svg", 
 						Species.Pasque: "res://art/workbenchScreen/pasquePacketSmall.svg", 
 						Species.WildYam: "res://art/workbenchScreen/wildYamPacketSmall.svg"}
