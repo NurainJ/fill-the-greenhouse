@@ -19,7 +19,7 @@ func _ready():
 		pot.number = x
 		
 		GameVariables.soilPaths.append(GameVariables.possibleSoilPaths[0])
-		GameVariables.plantStates.append(GameVariables.initialStates[GameVariables.Species.LadySlipper])
+		GameVariables.plantStates.append(GameVariables.ladySlipperInitialState)
 		
 		self.add_child(pot)
 

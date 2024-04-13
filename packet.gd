@@ -24,10 +24,8 @@ func _process(_delta):
 func _on_input_event(viewport, event, _shape_idx):
 	if event is InputEventMouseButton and !event.pressed and !SwipeDetector._calculate_swipe(viewport.get_mouse_position()):
 		if order == 1:
-			if !active: 
-				$AnimationPlayer.play("foreground")
-				await $AnimationPlayer.animation_finished
-				active = true
+			$AnimationPlayer.play("foreground")
+			await $AnimationPlayer.animation_finished
 			if frontShowing:
 				$AnimationPlayer.play("flip_backward")
 			else:
@@ -40,12 +38,8 @@ func swipe_right():
 		$AnimationPlayer.play("swipe_right")
 		await $AnimationPlayer.animation_finished
 		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
-		await get_tree().root.get_node("Root").add_scene("res://workbench_screen.tscn")
-		var node = get_tree().root.get_node("Root/WorkbenchScreen/rack/AnimationPlayer")
-		node.play("plant_seeds")
-		GameVariables.plantStates[GameVariables.currentPacket].species = species
-		GameVariables.plantStates[GameVariables.currentPacket] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
-		get_tree().root.get_node("Root").set_scene("res://workbench_screen.tscn")
+		SceneSwitcher.set_scene("res://workbench_screen.tscn")
+		#queue_free()
 	
 func swipe_left():
 	if order == 1:

@@ -4,6 +4,7 @@ extends Sprite2D
 func _ready():
 	set_texture(load(GameVariables.plantStates[GameVariables.activePlant].path))
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
