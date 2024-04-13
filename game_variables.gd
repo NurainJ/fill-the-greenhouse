@@ -12,14 +12,15 @@ enum Species {LadySlipper, Pasque, WildYam}
 const speciesNames = {Species.LadySlipper: "ladySlipper", Species.Pasque: "pasque", Species.WildYam: "wildYam"}
 const speciesPaths = {Species.LadySlipper: "res://art/plant/ladySlipper/", Species.Pasque: "res://art/plant/pasque/", Species.WildYam: "res://art/plant/wildYam/"}
 
-var ladySlipperInitialState
-var pasqueInitialState
-var wildYamInitialState
+var initialStates = {}
 
 var soilPaths = Array()
 var possibleSoilPaths = ["res://art/pot/potSoilEmpty.svg", "res://art/pot/potSoilFull.svg", "res://art/pot/potSoilOverfull1.svg", "res://art/pot/potSoilOverfull2.svg"]
 
 var currentPacket: Species
+var smallPacketPaths = {Species.LadySlipper: "res://art/workbenchScreen/ladySlipperPacketSmall.svg", 
+						Species.Pasque: "res://art/workbenchScreen/pasquePacketSmall.svg", 
+						Species.WildYam: "res://art/workbenchScreen/wildYamPacketSmall.svg"}
 
 var stateMachineData = {Species.LadySlipper: {
 						 "ladySlipperBlank": {}, 
@@ -74,9 +75,9 @@ func _ready():
 				var state = possiblePlantStates[stateName]
 				var nextState = possiblePlantStates[nextStateName]
 				state.add_next_state(nextState, stateMachineData[species][stateName][nextStateName])
-	ladySlipperInitialState = possiblePlantStates["ladySlipperBlank"]
-	pasqueInitialState = possiblePlantStates["pasqueBlank"]
-	wildYamInitialState = possiblePlantStates["wildYamBlank"]
+	initialStates[Species.LadySlipper] = possiblePlantStates["ladySlipperBlank"]
+	initialStates[Species.Pasque] = possiblePlantStates["pasqueBlank"]
+	initialStates[Species.WildYam] = possiblePlantStates["wildYamBlank"]
 
 func _process(_delta):
 	pass

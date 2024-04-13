@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkpxamh3cujkk"]
+[gd_scene load_steps=10 format=3 uid="uid://dkpxamh3cujkk"]
 
+[ext_resource type="Script" path="res://thermometer_screen.gd" id="1_qok6k"]
 [ext_resource type="Texture2D" uid="uid://b7b14k55ua558" path="res://art/thermometerScreen/thermometerBackground.svg" id="2_4wljp"]
 [ext_resource type="FontFile" uid="uid://bmuiint7t2i05" path="res://fonts/thermometerFont.ttf" id="3_rbrpg"]
 [ext_resource type="Script" path="res://temperature_label.gd" id="4_sd1gr"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="7_kwyhr"]
 
 [node name="ThermometerScreen" type="Node2D"]
+script = ExtResource("1_qok6k")
 
 [node name="ThermometerBackground" type="TextureRect" parent="."]
 offset_right = 40.0

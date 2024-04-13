@@ -10,4 +10,4 @@ func _process(_delta):
 
 
 func _on_play_pressed():
-	SceneSwitcher.set_scene("res://main_screen.tscn")
+	get_tree().root.get_node("Root").set_scene("res://main_screen.tscn")

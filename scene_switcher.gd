@@ -8,24 +8,33 @@ var previous_scene = {
 	"res://thermometer_screen.tscn": "res://main_screen.tscn", 
 	"res://rack.tscn": "res://workbench_screen.tscn", 
 	"res://workbench_screen.tscn": "res://main_screen.tscn"}
+var sceneNames = {}
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	sceneNames = {"res://start_screen.tscn": get_tree().root.get_node("Root/StartScreen"), 
+	"res://main_screen.tscn": get_tree().root.get_node("Root/MainScreen"), 
+	"res://calendar_screen.tscn": get_tree().root.get_node("Root/CalendarScreen"), 
+	"res://thermometer_screen.tscn": get_tree().root.get_node("Root/ThermometerScreen"), 
+	"res://rack.tscn": get_tree().root.get_node("Root/RackScreen"), 
+	"res://workbench_screen.tscn": get_tree().root.get_node("Root/WorkbenchScreen")}
+	for scene in sceneNames:
+		remove_child(sceneNames[scene])
+	add_child(sceneNames[current_scene])
 	
+
+func add_scene(path):
+	add_child(sceneNames[path])
 
 func set_scene(path):
-	call_deferred("_deferred_goto_scene", path)
-
-func set_scene_back():
-	call_deferred("_deferred_goto_previous")
-
-func _deferred_goto_scene(path: String):
-	get_tree().change_scene_to_file(path)
-	
+	add_child(sceneNames[path])
+	sceneNames[path]._ready()
+	remove_child(sceneNames[current_scene])
 	current_scene = path
 
-func _deferred_goto_previous():
-	current_scene = previous_scene.get(current_scene)
-	get_tree().change_scene_to_file(current_scene)
-	
+func set_scene_back():
+	remove_child(sceneNames[current_scene])
+	current_scene = previous_scene[current_scene]
+	add_child(sceneNames[current_scene])
+	sceneNames[current_scene]._ready()
