@@ -12,5 +12,6 @@ func _process(_delta):
 
 
 func _on_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		get_tree().root.get_node("Root").set_scene_back()
+	var rootNode = get_tree().root.get_node("Root")
+	if rootNode.get_node("Timer").is_stopped() and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		rootNode.set_scene_back()

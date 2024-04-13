@@ -1,12 +1,12 @@
 extends Node
 
-var current_scene = "res://start_screen.tscn"
+
 var previous_scene = {
 	"res://start_screen.tscn": "res://start_screen.tscn", 
 	"res://main_screen.tscn": "res://start_screen.tscn", 
 	"res://calendar_screen.tscn": "res://main_screen.tscn", 
 	"res://thermometer_screen.tscn": "res://main_screen.tscn", 
-	"res://rack.tscn": "res://workbench_screen.tscn", 
+	"res://rack_screen.tscn": "res://workbench_screen.tscn", 
 	"res://workbench_screen.tscn": "res://main_screen.tscn"}
 var sceneNames = {}
 	
@@ -17,11 +17,11 @@ func _ready():
 	"res://main_screen.tscn": get_tree().root.get_node("Root/MainScreen"), 
 	"res://calendar_screen.tscn": get_tree().root.get_node("Root/CalendarScreen"), 
 	"res://thermometer_screen.tscn": get_tree().root.get_node("Root/ThermometerScreen"), 
-	"res://rack.tscn": get_tree().root.get_node("Root/RackScreen"), 
+	"res://rack_screen.tscn": get_tree().root.get_node("Root/RackScreen"), 
 	"res://workbench_screen.tscn": get_tree().root.get_node("Root/WorkbenchScreen")}
 	for scene in sceneNames:
 		remove_child(sceneNames[scene])
-	add_child(sceneNames[current_scene])
+	add_child(sceneNames[GameVariables.current_scene])
 
 func add_scene(path):
 	add_child(sceneNames[path])
@@ -29,11 +29,13 @@ func add_scene(path):
 func set_scene(path):
 	add_child(sceneNames[path])
 	sceneNames[path]._ready()
-	remove_child(sceneNames[current_scene])
-	current_scene = path
+	remove_child(sceneNames[GameVariables.current_scene])
+	GameVariables.current_scene = path
+	$Timer.start()
 
 func set_scene_back():
-	remove_child(sceneNames[current_scene])
-	current_scene = previous_scene[current_scene]
-	add_child(sceneNames[current_scene])
-	sceneNames[current_scene]._ready()
+	remove_child(sceneNames[GameVariables.current_scene])
+	GameVariables.current_scene = previous_scene[GameVariables.current_scene]
+	add_child(sceneNames[GameVariables.current_scene])
+	sceneNames[GameVariables.current_scene]._ready()
+	$Timer.start()

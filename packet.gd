@@ -36,8 +36,8 @@ func _on_input_event(viewport, event, _shape_idx):
 			
 
 func swipe_right(): 
-	if order == 1:
-		var rootNode = get_tree().root.get_node("Root")
+	var rootNode = get_tree().root.get_node("Root")
+	if rootNode.get_node("Timer").is_stopped() and order == 1:
 		$AnimationPlayer.play("swipe_right")
 		await $AnimationPlayer.animation_finished
 		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
@@ -51,17 +51,18 @@ func swipe_right():
 		$AnimationPlayer.play("RESET")
 	
 func swipe_left():
-	if order == 1:
-		$AnimationPlayer.play("swipe_left")
-		await $AnimationPlayer.animation_finished
-		get_parent().move_child(self, 1)
-		order = 3
-	elif order == 2:
-		$AnimationPlayer.play("move_to_front")
-		await $AnimationPlayer.animation_finished
-		order = 1
-	elif order == 3:
-		$AnimationPlayer.play("move_to_middle")
-		await $AnimationPlayer.animation_finished
-		active = false
-		order = 2
+	if get_tree().root.get_node("Root/Timer").is_stopped():
+		if order == 1:
+			$AnimationPlayer.play("swipe_left")
+			await $AnimationPlayer.animation_finished
+			get_parent().move_child(self, 1)
+			order = 3
+		elif order == 2:
+			$AnimationPlayer.play("move_to_front")
+			await $AnimationPlayer.animation_finished
+			order = 1
+		elif order == 3:
+			$AnimationPlayer.play("move_to_middle")
+			await $AnimationPlayer.animation_finished
+			active = false
+			order = 2

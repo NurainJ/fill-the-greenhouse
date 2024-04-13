@@ -51,7 +51,6 @@ position = Vector2(145, 251)
 shape = SubResource("CapsuleShape2D_7cwhq")
 
 [node name="BackButton" parent="." instance=ExtResource("5_d8l18")]
-visible = false
 
 [node name="Calendar" type="Area2D" parent="."]
 script = ExtResource("6_pl254")

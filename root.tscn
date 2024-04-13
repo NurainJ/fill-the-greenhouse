@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkpxamh3cujkk" path="res://thermometer_screen.tscn" id="3_fpigl"]
 [ext_resource type="PackedScene" uid="uid://do31su411oblb" path="res://calendar_screen.tscn" id="4_alm1a"]
 [ext_resource type="PackedScene" uid="uid://cal3i4ptukm7r" path="res://workbench_screen.tscn" id="5_ty7xw"]
-[ext_resource type="PackedScene" uid="uid://d1rml3872ffkl" path="res://rack.tscn" id="6_44sp1"]
+[ext_resource type="PackedScene" uid="uid://d1rml3872ffkl" path="res://rack_screen.tscn" id="6_44sp1"]
 [ext_resource type="Script" path="res://rack_screen.gd" id="8_is3qu"]
 
 [node name="Root" type="Node"]
@@ -24,3 +24,6 @@ script = ExtResource("1_swgwl")
 
 [node name="RackScreen" parent="." instance=ExtResource("6_44sp1")]
 script = ExtResource("8_is3qu")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

@@ -3,6 +3,7 @@ extends Node
 var temperature = 75
 var days_remaining = 40
 var activePlant = 0
+var current_scene = "res://start_screen.tscn"
 
 var plantStateClass = load("res://plant_state.gd")
 var plantStates = Array()
