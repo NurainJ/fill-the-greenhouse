@@ -37,17 +37,17 @@ func _on_input_event(viewport, event, _shape_idx):
 
 func swipe_right(): 
 	if order == 1:
+		var rootNode = get_tree().root.get_node("Root")
 		$AnimationPlayer.play("swipe_right")
 		await $AnimationPlayer.animation_finished
 		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
 		
-		SceneSwitcher.set_scene("res://workbench_screen.tscn")
-		await get_tree().root.get_node("Root").add_scene("res://workbench_screen.tscn")
-		var node = get_tree().root.get_node("Root/WorkbenchScreen/rack/AnimationPlayer")
-		node.play("plant_seeds")
+		await rootNode.add_scene("res://workbench_screen.tscn")
+		var player = get_tree().root.get_node("Root/WorkbenchScreen/rack/AnimationPlayer")
+		player.play("plant_seeds")
 		GameVariables.plantStates[GameVariables.activePlant].species = species
 		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
-		get_tree().root.get_node("Root").set_scene("res://workbench_screen.tscn")
+		rootNode.set_scene("res://workbench_screen.tscn")
 		$AnimationPlayer.play("RESET")
 	
 func swipe_left():
