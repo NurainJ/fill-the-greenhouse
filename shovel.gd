@@ -12,12 +12,15 @@ func _process(_delta):
 	pass
 
 
-func _on_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if (!get_parent().get_node("potSoil").is_overfull()):
+func add_soil():
+	if (!get_parent().get_node("potSoil").is_overfull()):
 			isPlaying = true
+			var tween = get_tree().create_tween()
+			tween.tween_property(self, "position", Vector2(650, 175), 0.1)
 			$AnimationPlayer.play("fill_soil")
-
+			await $AnimationPlayer.animation_finished
+			get_parent().isAnimating = false
+	
 func _input(event: InputEvent):
 	if isPlaying and event is InputEventMouseButton:
 		get_viewport().set_input_as_handled()
