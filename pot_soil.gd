@@ -1,19 +1,29 @@
-extends TextureRect
+extends Sprite2D
+var collisionShapes
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_texture(load(GameVariables.soilPaths[GameVariables.activePlant]))
+	set_texture(load(GameVariables.possibleSoilPaths[GameVariables.soilPathIndicies[GameVariables.activePlant]]))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-	
-func is_overfull():
-	return GameVariables.soilPaths[GameVariables.activePlant] == GameVariables.possibleSoilPaths[GameVariables.possibleSoilPaths.size() - 1]
 
 func update_state():
-	if !is_overfull():
-		var soilPathIndex = GameVariables.possibleSoilPaths.find(GameVariables.soilPaths[GameVariables.activePlant])
-		GameVariables.soilPaths[GameVariables.activePlant] = GameVariables.possibleSoilPaths[soilPathIndex + 1]
-		set_texture(load(GameVariables.soilPaths[GameVariables.activePlant]))
+	var soilPathIndex = GameVariables.soilPathIndicies[GameVariables.activePlant]
+	if soilPathIndex < 3:
+		collisionShapes = [get_parent().get_node("collisionSoilEmpty"), get_parent().get_node("collisionSoilFull"), get_parent().get_node("collisionSoilOverfull1"), get_parent().get_node("collisionSoilOverfull2")]
+		collisionShapes[soilPathIndex].set_disabled(true)
+		collisionShapes[soilPathIndex + 1].set_disabled(false)
+		GameVariables.soilPathIndicies[GameVariables.activePlant] = soilPathIndex + 1
+		set_texture(load(GameVariables.possibleSoilPaths[GameVariables.soilPathIndicies[GameVariables.activePlant]]))
+
+func remove_soil():
+	var soilPathIndex = GameVariables.soilPathIndicies[GameVariables.activePlant]
+	if soilPathIndex > 0:
+		collisionShapes = [get_parent().get_node("collisionSoilEmpty"), get_parent().get_node("collisionSoilFull"), get_parent().get_node("collisionSoilOverfull1"), get_parent().get_node("collisionSoilOverfull2")]
+		collisionShapes[soilPathIndex].set_disabled(true)
+		collisionShapes[soilPathIndex - 1].set_disabled(false)
+		GameVariables.soilPathIndicies[GameVariables.activePlant] = soilPathIndex - 1
+		set_texture(load(GameVariables.possibleSoilPaths[GameVariables.soilPathIndicies[GameVariables.activePlant]]))

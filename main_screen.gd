@@ -20,7 +20,7 @@ func _ready():
 
 func initializePots():
 	for x in range(7):
-			GameVariables.soilPaths.append(GameVariables.possibleSoilPaths[0])
+			GameVariables.soilPathIndicies.append(0)
 			GameVariables.plantStates.append(GameVariables.initialStates[GameVariables.Species.LadySlipper])
 			
 	isInitialized = true

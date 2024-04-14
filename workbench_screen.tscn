@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://b6sm0u1um0tro" path="res://art/pot/potBottom.svg" id="4_56n0v"]
 [ext_resource type="Texture2D" uid="uid://c541beuh60fa3" path="res://art/workbenchScreen/wateringCan.svg" id="5_5toqa"]
 [ext_resource type="Texture2D" uid="uid://br3e8e7i7ykrs" path="res://art/workbenchScreen/water.svg" id="5_7xiaf"]
-[ext_resource type="Texture2D" uid="uid://clokdp4u2484h" path="res://art/pot/potSoilEmpty.svg" id="5_al3l0"]
 [ext_resource type="Script" path="res://watering_can.gd" id="6_0g8e2"]
 [ext_resource type="Script" path="res://pot_soil.gd" id="6_1g0id"]
 [ext_resource type="Texture2D" uid="uid://lb7trutewhlx" path="res://art/workbenchScreen/shovel.svg" id="9_4222s"]
@@ -21,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ctncs7tsh07fy" path="res://art/workbenchScreen/ladySlipperPacketSmall.svg" id="17_j7hik"]
 [ext_resource type="Texture2D" uid="uid://cjgimuhcc8hyx" path="res://art/workbenchScreen/wildYamPacketSmall.svg" id="19_vvndw"]
 [ext_resource type="Texture2D" uid="uid://nxufyvug70bu" path="res://art/workbenchScreen/shelf1Small.svg" id="20_bor8v"]
+[ext_resource type="Texture2D" uid="uid://bu6yx0oojimjp" path="res://art/plant/ladySlipper/ladySlipperBlank.svg" id="22_nagxk"]
 [ext_resource type="Texture2D" uid="uid://dvc13pr1louco" path="res://art/plant/ladySlipper/ladySlipper0.svg" id="24_517bm"]
 
 [sub_resource type="Animation" id="Animation_br3cn"]
@@ -133,7 +133,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_21f0j"]
-length = 0.001
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -192,7 +192,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -204,24 +204,24 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../potSoil:z_index")
+tracks/6/path = NodePath("../plant:z_index")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [2]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../plant:z_index")
+tracks/7/path = NodePath("../potTop:z_index")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -231,123 +231,9 @@ tracks/7/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_8lwc0"]
-resource_name = "fill_soil"
-length = 9.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2, 2.5, 3.5, 4.5, 6.2, 7, 7.8, 9.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1600, 870), Vector2(1260, 300), Vector2(650, 175), Vector2(500, 225), Vector2(650, 175), Vector2(1250, 500), Vector2(1250, 500), Vector2(1354, 460), Vector2(1600, 870)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5, 3.5, 4.5, 6.2, 7.2, 8.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, -0.610865, 0.0, 0.0, -0.610865, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("soil:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.5, 7.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("soil:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 6.3, 7.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-640, -320), Vector2(-640, -320), Vector2(-860, -204.108)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("soil:z_index")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 6.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../potBottom:z_index")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 6.7, 9.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../potSoil:z_index")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 6.7, 9.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../plant:z_index")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 9.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 1]
-}
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../potSoil")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(6.8),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"update_state"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_53kwg"]
 resource_name = "fill_soil_2"
-length = 9.5
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -406,7 +292,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 3.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 0]
+"values": [0, 1]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -418,39 +304,27 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 4.2, 7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 0]
+"values": [1, 2, 1]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../potSoil:z_index")
+tracks/6/path = NodePath("../plant:z_index")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 4.2, 7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../plant:z_index")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0, 7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1, 1]
+"values": [2, 2]
 }
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../potSoil")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../potSoil/potSoilSprite")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(4.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -459,18 +333,132 @@ tracks/8/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_7xjeg"]
+resource_name = "remove_soil"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1, 2.5, 3.5, 3.9, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1295, 473), Vector2(1150, 650), Vector2(1250, 500), Vector2(650, 175), Vector2(500, 225), Vector2(650, 175), Vector2(1600, 870)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 2.5, 3.5, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.593412, -0.593412, 0.0, 0.0, -0.610865, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("soil:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("soil:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-860, -204.108), Vector2(-640, -320)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("soil:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../potBottom:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 0, 2]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../plant:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../potSoil/potSoilSprite")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove_soil"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../potTop:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rt1o3"]
 _data = {
 "RESET": SubResource("Animation_21f0j"),
 "fill_soil": SubResource("Animation_53kwg"),
-"fill_soil_old": SubResource("Animation_8lwc0")
+"remove_soil": SubResource("Animation_7xjeg")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ptitu"]
 size = Vector2(311, 379)
 
 [sub_resource type="Animation" id="Animation_bp6fn"]
-length = 0.001
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -555,10 +543,22 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("seeds:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_d1dfa"]
 resource_name = "plant_pasque"
-length = 4.0
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -643,6 +643,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("seeds:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqkb4"]
 _data = {
@@ -661,6 +673,7 @@ texture = ExtResource("1_4fkqx")
 [node name="BackButton" parent="." instance=ExtResource("3_8qao5")]
 
 [node name="potTop" type="TextureRect" parent="."]
+z_index = 1
 offset_left = -1.0
 offset_top = 1.0
 offset_right = 1919.0
@@ -668,19 +681,33 @@ offset_bottom = 1081.0
 texture = ExtResource("3_qt0kc")
 
 [node name="potBottom" type="TextureRect" parent="."]
+z_index = 1
 offset_left = -1.0
 offset_top = 1.0
 offset_right = 1919.0
 offset_bottom = 1081.0
 texture = ExtResource("4_56n0v")
 
-[node name="potSoil" type="TextureRect" parent="."]
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 1919.0
-offset_bottom = 1081.0
-texture = ExtResource("5_al3l0")
+[node name="potSoil" type="Area2D" parent="."]
+z_index = 2
+
+[node name="potSoilSprite" type="Sprite2D" parent="potSoil"]
+position = Vector2(960, 540)
 script = ExtResource("6_1g0id")
+
+[node name="collisionSoilEmpty" type="CollisionPolygon2D" parent="potSoil"]
+
+[node name="collisionSoilFull" type="CollisionPolygon2D" parent="potSoil"]
+polygon = PackedVector2Array(881, 713, 828, 750, 959, 796, 1129, 758, 1089, 713)
+disabled = true
+
+[node name="collisionSoilOverfull1" type="CollisionPolygon2D" parent="potSoil"]
+polygon = PackedVector2Array(838, 681, 847, 779, 1097, 782, 1161, 683, 981, 652)
+disabled = true
+
+[node name="collisionSoilOverfull2" type="CollisionPolygon2D" parent="potSoil"]
+polygon = PackedVector2Array(883, 593, 828, 765, 1141, 751, 1072, 585, 996, 550)
+disabled = true
 
 [node name="water" type="Sprite2D" parent="."]
 visible = false
@@ -703,13 +730,6 @@ polygon = PackedVector2Array(1400, 699, 1552, 756, 1762, 701, 1876, 263, 1436, 3
 position = Vector2(960, 540)
 texture = ExtResource("5_5toqa")
 
-[node name="plant" type="Sprite2D" parent="."]
-visible = false
-z_index = 1
-position = Vector2(960, 540)
-texture = ExtResource("24_517bm")
-script = ExtResource("3_cmqpq")
-
 [node name="soilBag" type="Area2D" parent="."]
 position = Vector2(960, 540)
 
@@ -717,7 +737,8 @@ position = Vector2(960, 540)
 texture = ExtResource("11_h0532")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="soilBag"]
-polygon = PackedVector2Array(-762, -312, -803, 18, -334, 17, -410, -314)
+position = Vector2(-2, -10)
+polygon = PackedVector2Array(-762, -312, -753, 18, -379, 69, -410, -314)
 
 [node name="shovel" type="Area2D" parent="."]
 position = Vector2(1600, 870)
@@ -725,7 +746,7 @@ script = ExtResource("10_x3yoa")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="shovel"]
 position = Vector2(-12, 7)
-polygon = PackedVector2Array(-319, 65, 5, 96, 25, 55, 241, -48, 215, -106, -30, -78, -186, -94)
+polygon = PackedVector2Array(-302, 58, -106, 81, 25, 55, 241, -48, 215, -106, -30, -78, -180, -50)
 
 [node name="shovelSprite" type="Sprite2D" parent="shovel"]
 position = Vector2(-641, -328)
@@ -733,6 +754,7 @@ texture = ExtResource("9_4222s")
 
 [node name="soil" type="Sprite2D" parent="shovel"]
 visible = false
+z_index = 1
 position = Vector2(-640, -320)
 texture = ExtResource("10_ikdqk")
 
@@ -787,9 +809,20 @@ position = Vector2(960, 540)
 texture = ExtResource("11_57c1x")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="soilBagSoil"]
-polygon = PackedVector2Array(214, 224, 219, 481, 554, 479, 521, 224)
+position = Vector2(1.85294, -2.82225)
+scale = Vector2(0.983456, 1.01921)
+polygon = PackedVector2Array(228.935, 283.378, 219, 481, 554, 479, 538.049, 287.303)
+
+[node name="plant" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(960, 540)
+texture = ExtResource("22_nagxk")
+script = ExtResource("3_cmqpq")
 
 [connection signal="input_event" from="BackButton" to="plant" method="_on_back_button_input_event"]
+[connection signal="area_entered" from="potSoil" to="." method="_on_pot_soil_area_entered"]
+[connection signal="area_exited" from="potSoil" to="." method="_on_pot_soil_area_exited"]
 [connection signal="input_event" from="wateringCan" to="wateringCan" method="_on_input_event"]
 [connection signal="animation_finished" from="wateringCan/AnimationPlayer" to="wateringCan" method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="soilBag" to="." method="_on_soil_bag_area_entered"]

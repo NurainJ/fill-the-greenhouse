@@ -15,7 +15,7 @@ const speciesPaths = {Species.LadySlipper: "res://art/plant/ladySlipper/", Speci
 
 var initialStates = {}
 
-var soilPaths = Array()
+var soilPathIndicies = Array() #an array of ints [0, 4) where each int represents the soil state of that pot
 var possibleSoilPaths = ["res://art/pot/potSoilEmpty.svg", "res://art/pot/potSoilFull.svg", "res://art/pot/potSoilOverfull1.svg", "res://art/pot/potSoilOverfull2.svg"]
 
 var smallPacketPaths = {Species.LadySlipper: "res://art/workbenchScreen/ladySlipperPacketSmall.svg", 

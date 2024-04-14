@@ -14,7 +14,7 @@ func _process(_delta):
 
 func update():
 	$plant.set_texture(load(GameVariables.plantStates[number].path))
-	$soil.set_texture(load(GameVariables.soilPaths[number]))
+	$soil.set_texture(load(GameVariables.possibleSoilPaths[GameVariables.soilPathIndicies[number]]))
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
