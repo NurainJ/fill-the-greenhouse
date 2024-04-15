@@ -15,8 +15,8 @@ func fade_to_black():
 	$BlackScreenPlayer.play("fade_to_black")
 	
 
-func _input(event: InputEvent):
-	if is_visible() and event is InputEventMouseButton:
+func _input(_event: InputEvent):
+	if is_visible():
 		get_viewport().set_input_as_handled()
 
 

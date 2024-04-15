@@ -4,7 +4,12 @@ var collisionShapes
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_texture(load(GameVariables.possibleSoilPaths[GameVariables.soilPathIndicies[GameVariables.activePlant]]))
-
+	collisionShapes = [get_parent().get_node("collisionSoilEmpty"), get_parent().get_node("collisionSoilFull"), get_parent().get_node("collisionSoilOverfull1"), get_parent().get_node("collisionSoilOverfull2")]
+	for x in range(4):
+		if x == GameVariables.soilPathIndicies[GameVariables.activePlant]:
+			collisionShapes[x].set_disabled(false)
+		else:
+			collisionShapes[x].set_disabled(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

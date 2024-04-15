@@ -31,8 +31,8 @@ func remove_soil():
 	await $AnimationPlayer.animation_finished
 	get_parent().isAnimating = false
 	
-func _input(event: InputEvent):
-	if isPlaying and event is InputEventMouseButton:
+func _input(_event: InputEvent):
+	if isPlaying:
 		get_viewport().set_input_as_handled()
 
 

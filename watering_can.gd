@@ -17,8 +17,8 @@ func _on_input_event(_viewport, event, _shape_idx):
 		isPlaying = true
 		$AnimationPlayer.play("watering")
 
-func _input(event: InputEvent):
-	if isPlaying and event is InputEventMouseButton:
+func _input(_event: InputEvent):
+	if isPlaying:
 		get_viewport().set_input_as_handled()
 
 func _on_animation_player_animation_finished(_anim_name):

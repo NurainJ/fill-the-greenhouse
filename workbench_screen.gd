@@ -29,22 +29,22 @@ func _process(_delta):
 				tween.tween_property($shovel, "position", initialShovelPosition, 1)
 		if isShovelInsideSoil:
 			isShovelInsideSoil = false
+			isDraggingShovel = false
 			if (GameVariables.soilPathIndicies[GameVariables.activePlant] < 3):
 				print("adding soil")
 				isAnimating = true
 				await $shovel.add_soil()
 			else:
-				isDraggingShovel = false
 				var tween = get_tree().create_tween()
 				tween.tween_property($shovel, "position", initialShovelPosition, 1)		
 		if isShovelInsidePot:
 			isShovelInsidePot = false
+			isDraggingShovel = false
 			if (GameVariables.soilPathIndicies[GameVariables.activePlant] > 0):
 				print("removing soil")
 				isAnimating = true
 				await $shovel.remove_soil()
 			else:
-				isDraggingShovel = false
 				var tween = get_tree().create_tween()
 				tween.tween_property($shovel, "position", initialShovelPosition, 1)
 
