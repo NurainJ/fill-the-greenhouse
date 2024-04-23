@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://lb7trutewhlx" path="res://art/workbenchScreen/shovel.svg" id="9_4222s"]
 [ext_resource type="Texture2D" uid="uid://dkfu1pcrq02be" path="res://art/workbenchScreen/shovelSoil.svg" id="10_ikdqk"]
 [ext_resource type="Script" path="res://shovel.gd" id="10_x3yoa"]
-[ext_resource type="Texture2D" uid="uid://ilkp4dyntbng" path="res://art/workbenchScreen/soilBagSoil.svg" id="11_57c1x"]
-[ext_resource type="Texture2D" uid="uid://bfw5lk43a8pxt" path="res://art/workbenchScreen/soilBag.svg" id="11_h0532"]
+[ext_resource type="Texture2D" uid="uid://djtfrq82vg5yi" path="res://art/workbenchScreen/soilBagSoil.svg" id="11_57c1x"]
+[ext_resource type="Texture2D" uid="uid://t6f5a4120j3" path="res://art/workbenchScreen/soilBag.svg" id="11_h0532"]
 [ext_resource type="Script" path="res://rack.gd" id="16_qo0tw"]
 [ext_resource type="Texture2D" uid="uid://cddi5cbqn6lgm" path="res://art/workbenchScreen/rackSmall.svg" id="16_umgdm"]
 [ext_resource type="Texture2D" uid="uid://ctncs7tsh07fy" path="res://art/workbenchScreen/ladySlipperPacketSmall.svg" id="17_j7hik"]
@@ -230,6 +230,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../soilBagSoil:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_53kwg"]
 resource_name = "fill_soil_2"
@@ -331,6 +343,18 @@ tracks/7/keys = {
 "args": [],
 "method": &"update_state"
 }]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../soilBagSoil:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_7xjeg"]
@@ -741,6 +765,17 @@ texture = ExtResource("11_h0532")
 position = Vector2(-2, -10)
 polygon = PackedVector2Array(-762, -312, -753, 18, -379, 69, -410, -314)
 
+[node name="soilBagSoil" type="Area2D" parent="."]
+
+[node name="soilBagSoilSprite" type="Sprite2D" parent="soilBagSoil"]
+position = Vector2(960, 540)
+texture = ExtResource("11_57c1x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="soilBagSoil"]
+position = Vector2(1.85294, -2.82225)
+scale = Vector2(0.983456, 1.01921)
+polygon = PackedVector2Array(228.935, 283.378, 219, 481, 554, 479, 538.049, 287.303)
+
 [node name="shovel" type="Area2D" parent="."]
 position = Vector2(1600, 870)
 script = ExtResource("10_x3yoa")
@@ -803,17 +838,6 @@ libraries = {
 "": SubResource("AnimationLibrary_kqkb4")
 }
 
-[node name="soilBagSoil" type="Area2D" parent="."]
-
-[node name="soilBagSoilSprite" type="Sprite2D" parent="soilBagSoil"]
-position = Vector2(960, 540)
-texture = ExtResource("11_57c1x")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="soilBagSoil"]
-position = Vector2(1.85294, -2.82225)
-scale = Vector2(0.983456, 1.01921)
-polygon = PackedVector2Array(228.935, 283.378, 219, 481, 554, 479, 538.049, 287.303)
-
 [node name="plant" type="Sprite2D" parent="."]
 visible = false
 z_index = 2
@@ -828,10 +852,10 @@ script = ExtResource("3_cmqpq")
 [connection signal="animation_finished" from="wateringCan/AnimationPlayer" to="wateringCan" method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="soilBag" to="." method="_on_soil_bag_area_entered"]
 [connection signal="area_exited" from="soilBag" to="." method="_on_soil_bag_area_exited"]
+[connection signal="mouse_entered" from="soilBagSoil" to="." method="_on_soil_bag_soil_mouse_entered"]
+[connection signal="mouse_exited" from="soilBagSoil" to="." method="_on_soil_bag_soil_mouse_exited"]
 [connection signal="input_event" from="shovel" to="shovel" method="_on_input_event"]
 [connection signal="mouse_entered" from="shovel" to="." method="_on_shovel_mouse_entered"]
 [connection signal="mouse_exited" from="shovel" to="." method="_on_shovel_mouse_exited"]
 [connection signal="animation_finished" from="shovel/AnimationPlayer" to="shovel" method="_on_animation_player_animation_finished"]
 [connection signal="input_event" from="rack" to="rack" method="_on_input_event"]
-[connection signal="mouse_entered" from="soilBagSoil" to="." method="_on_soil_bag_soil_mouse_entered"]
-[connection signal="mouse_exited" from="soilBagSoil" to="." method="_on_soil_bag_soil_mouse_exited"]
