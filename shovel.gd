@@ -23,7 +23,6 @@ func add_soil():
 func remove_soil():
 	isPlaying = true
 	var tween = get_tree().create_tween()
-	print("rotation")
 	tween.tween_property(self, "position", Vector2(1295, 473), 0.1)
 	tween.tween_property(self, "rotation", deg_to_rad(-34), 0.1)
 	await tween.finished

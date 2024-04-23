@@ -1,6 +1,7 @@
 extends Area2D
 var active = false
 var frontShowing = true
+var isPlaying = false
 @export var order:int #1 denotes front, 3 denotes back
 @export var species:GameVariables.Species
 
@@ -24,6 +25,7 @@ func _process(_delta):
 func _on_input_event(viewport, event, _shape_idx):
 	if event is InputEventMouseButton and !event.pressed and !SwipeDetector._calculate_swipe(viewport.get_mouse_position()):
 		if order == 1:
+			isPlaying = true
 			if !active: 
 				$AnimationPlayer.play("foreground")
 				await $AnimationPlayer.animation_finished
@@ -32,6 +34,8 @@ func _on_input_event(viewport, event, _shape_idx):
 				$AnimationPlayer.play("flip_backward")
 			else:
 				$AnimationPlayer.play("flip_forward")
+			await $AnimationPlayer.animation_finished
+			isPlaying = false 
 			frontShowing = !frontShowing
 			
 func _on_xMark_input_event(viewport, event, shape_idx):
@@ -73,3 +77,8 @@ func swipe_left():
 			await $AnimationPlayer.animation_finished
 			active = false
 			order = 2
+
+
+func _input(_event: InputEvent):
+	if isPlaying:
+		get_viewport().set_input_as_handled()

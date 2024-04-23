@@ -16,11 +16,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Input.is_action_just_released("click"):
+		$shovel.scale = Vector2(1, 1)
+		
 	if !isAnimating and !isShovelInsidePot and !isShovelInsideSoil and Input.is_action_just_released("click"):
 		var tween = get_tree().create_tween()
 		tween.tween_property($shovel, "position", initialShovelPosition, 1)
-	if isMouseInsideShovel and !isAnimating:
+	if (isMouseInsideShovel or isDraggingShovel) and !isAnimating:
 		if Input.is_action_just_pressed("click"):
+			$shovel.scale = Vector2(1.1, 1.1)
 			offset = get_global_mouse_position() - $shovel.global_position
 			isDraggingShovel = true
 		if Input.is_action_pressed("click"):
@@ -57,8 +61,7 @@ func _on_shovel_mouse_entered():
 	isMouseInsideShovel = true
 
 func _on_shovel_mouse_exited():
-	if !isDraggingShovel:
-		isMouseInsideShovel = false
+	isMouseInsideShovel = false
 
 
 func _on_pot_soil_area_entered(area):
