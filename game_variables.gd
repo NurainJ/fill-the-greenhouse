@@ -70,7 +70,6 @@ func _ready():
 		for stateName in stateMachineData[species]:
 			var state = plantStateClass.new()
 			state.species = species
-			state.stateName = stateName
 			state.path = speciesPaths[species] + stateName + ".svg"
 			possiblePlantStates[stateName] = state
 	
@@ -80,7 +79,6 @@ func _ready():
 				var state = possiblePlantStates[stateName]
 				var nextState = possiblePlantStates[nextStateName]
 				state.add_next_state(nextState, stateMachineData[species][stateName][nextStateName])
-				#state.set_state_name(stateName)
 	initialStates[Species.LadySlipper] = possiblePlantStates["ladySlipperBlank"]
 	initialStates[Species.Pasque] = possiblePlantStates["pasqueBlank"]
 	initialStates[Species.WildYam] = possiblePlantStates["wildYamBlank"]

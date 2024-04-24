@@ -8,10 +8,7 @@ var yesWaterNum:int = 0;
 var waterConst = GameVariables.waterConst
 var waterNeed = GameVariables.waterNeeds[number]
 var health:float = 0.75
-var hasSeed
-
-# average water model
-var totalWater:int = 0;
+var hasSeed = false
 
 
 
@@ -26,7 +23,6 @@ func _process(_delta):
 	pass
 
 func update():
-
 	$plant.set_texture(load(GameVariables.plantStates[number].path))
 	$soil.set_texture(load(GameVariables.possibleSoilPaths[GameVariables.soilPathIndicies[number]]))
 
@@ -39,7 +35,6 @@ func _on_input_event(_viewport, event, _shape_idx):
 func _animation_finished():
 	if(hasSeed):
 		change_Health()
-		reset_wateredNum()
 	GameVariables.plantStates[number] = GameVariables.plantStates[number].get_next_state(health)
 	$plant.set_texture(load(GameVariables.plantStates[number].path))
 
@@ -59,44 +54,24 @@ func testing():
 
 
 func reset_wateredNum():
-	#yesWaterNum = wateredNum
+	yesWaterNum = wateredNum
 	wateredNum=0
 
 func change_Health():
 	print("Old Health for Pot" +str(number)+": "+ str(health))
 	print("Water Need: " + str(waterNeed))
-	print("Water Num: "+ str(wateredNum))
-	if wateredNum == waterNeed:
+	print("Water Num: "+ str(yesWaterNum))
+	if yesWaterNum == waterNeed:
 		if health>=(1-waterConst):
 			health = 1
 		else:
 			health= health+waterConst
 	else:
-		var diff = abs(wateredNum-waterNeed)
+		var diff = abs(yesWaterNum-waterNeed)
 		var newMult = waterConst*diff
 		health = health - newMult
 		if health<0:
 			health = 0
 			
 	print("New Health for Pot" +str(number)+": "+ str(health))
-
-
-#
-#func change_Health():
-	#print("Old Health for Pot" +str(number)+": "+ str(health))
-	#print("Water Need: " + str(waterNeed))
-	#print("Water Num: "+ str(yesWaterNum))
-	#if yesWaterNum == waterNeed:
-		#if health>=(1-waterConst):
-			#health = 1
-		#else:
-			#health= health+waterConst
-	#else:
-		#var diff = abs(yesWaterNum-waterNeed)
-		#var newMult = waterConst*diff
-		#health = health - newMult
-		#if health<0:
-			#health = 0
-			#
-	#print("New Health for Pot" +str(number)+": "+ str(health))
-		#
+		
