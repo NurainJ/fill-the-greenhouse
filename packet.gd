@@ -59,8 +59,10 @@ func swipe_right():
 	get_tree().root.get_node("Root").remove_child(mainScreen)
 	
 	if rootNode.get_node("Timer").is_stopped() and order == 1:
+		isPlaying = true
 		$AnimationPlayer.play("swipe_right")
 		await $AnimationPlayer.animation_finished
+		isPlaying = false
 		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
 		
 		await rootNode.add_scene("res://workbench_screen.tscn")
@@ -77,6 +79,7 @@ func swipe_right():
 		
 func swipe_left():
 	if get_tree().root.get_node("Root/Timer").is_stopped():
+		isPlaying = true
 		if order == 1:
 			$AnimationPlayer.play("swipe_left")
 			await $AnimationPlayer.animation_finished
@@ -91,6 +94,7 @@ func swipe_left():
 			await $AnimationPlayer.animation_finished
 			active = false
 			order = 2
+		isPlaying = false
 
 
 func _input(_event: InputEvent):
