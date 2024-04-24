@@ -23,11 +23,13 @@ func add_soil():
 func remove_soil():
 	isPlaying = true
 	var tween = get_tree().create_tween()
-	print("rotation")
 	tween.tween_property(self, "position", Vector2(1295, 473), 0.1)
 	tween.tween_property(self, "rotation", deg_to_rad(-34), 0.1)
 	await tween.finished
-	$AnimationPlayer.play("remove_soil")
+	if GameVariables.plantStates[GameVariables.activePlant] == GameVariables.initialStates[GameVariables.plantStates[GameVariables.activePlant].species]:
+		$AnimationPlayer.play("remove_soil")
+	else:
+		$AnimationPlayer.play("remove_plant")
 	await $AnimationPlayer.animation_finished
 	get_parent().isAnimating = false
 	

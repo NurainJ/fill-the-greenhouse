@@ -16,32 +16,32 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if isMouseInsideShovel and !isAnimating:
-		if !isShovelInsideSoil and !isShovelInsidePot:
-			if Input.is_action_just_pressed("click"):
-				offset = get_global_mouse_position() - $shovel.global_position
-				isDraggingShovel = true
-			if Input.is_action_pressed("click"):
-				$shovel.global_position = get_global_mouse_position() - offset
-			elif Input.is_action_just_released("click"):
-				isDraggingShovel = false
-				var tween = get_tree().create_tween()
-				tween.tween_property($shovel, "position", initialShovelPosition, 1)
-		if isShovelInsideSoil:
+	if Input.is_action_just_released("click"):
+		$shovel.scale = Vector2(1, 1)
+		
+	if !isAnimating and !isShovelInsidePot and !isShovelInsideSoil and Input.is_action_just_released("click"):
+		var tween = get_tree().create_tween()
+		tween.tween_property($shovel, "position", initialShovelPosition, 1)
+	if (isMouseInsideShovel or isDraggingShovel) and !isAnimating:
+		if Input.is_action_just_pressed("click"):
+			$shovel.scale = Vector2(1.1, 1.1)
+			offset = get_global_mouse_position() - $shovel.global_position
+			isDraggingShovel = true
+		if Input.is_action_pressed("click"):
+			$shovel.global_position = get_global_mouse_position() - offset
+		if isShovelInsideSoil and Input.is_action_just_released("click"):
 			isShovelInsideSoil = false
 			isDraggingShovel = false
 			if (GameVariables.soilPathIndicies[GameVariables.activePlant] < 3):
-				print("adding soil")
 				isAnimating = true
 				await $shovel.add_soil()
 			else:
 				var tween = get_tree().create_tween()
 				tween.tween_property($shovel, "position", initialShovelPosition, 1)		
-		if isShovelInsidePot:
+		if isShovelInsidePot and Input.is_action_just_released("click"):
 			isShovelInsidePot = false
 			isDraggingShovel = false
 			if (GameVariables.soilPathIndicies[GameVariables.activePlant] > 0):
-				print("removing soil")
 				isAnimating = true
 				await $shovel.remove_soil()
 			else:
@@ -61,8 +61,7 @@ func _on_shovel_mouse_entered():
 	isMouseInsideShovel = true
 
 func _on_shovel_mouse_exited():
-	if !isDraggingShovel:
-		isMouseInsideShovel = false
+	isMouseInsideShovel = false
 
 
 func _on_pot_soil_area_entered(area):

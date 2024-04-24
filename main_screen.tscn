@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbmq3p3y4g2lr"]
+[gd_scene load_steps=16 format=3 uid="uid://bbmq3p3y4g2lr"]
 
 [ext_resource type="Texture2D" uid="uid://bxr1m41ivo7u7" path="res://art/mainScreen/mainScreen.svg" id="1_dxj4q"]
 [ext_resource type="Texture2D" uid="uid://brifn2vvwth7e" path="res://art/mainScreen/mainScreenTemp.svg" id="1_la1a6"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://bajqxy8ti2t5o" path="res://fonts/calendarFont.ttf" id="8_mcc1s"]
 [ext_resource type="PackedScene" uid="uid://budbwfgc7s4b8" path="res://pot.tscn" id="13_qpnaa"]
 [ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="13_sioij"]
+[ext_resource type="PackedScene" uid="uid://cjd8xraosecfm" path="res://volume_button.tscn" id="14_3h5qn"]
 [ext_resource type="PackedScene" uid="uid://chja3jifya2yp" path="res://black_screen.tscn" id="15_s6ion"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cwhq"]
@@ -113,6 +114,8 @@ number = 5
 [node name="Pot6" parent="." instance=ExtResource("13_qpnaa")]
 position = Vector2(814, 154)
 number = 6
+
+[node name="VolumeButton" parent="." instance=ExtResource("14_3h5qn")]
 
 [connection signal="input_event" from="Thermometer" to="Thermometer" method="_on_input_event"]
 [connection signal="mouse_entered" from="Thermometer" to="Thermometer" method="_on_mouse_entered"]
