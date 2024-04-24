@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d1rml3872ffkl"]
+[gd_scene load_steps=15 format=3 uid="uid://d1rml3872ffkl"]
 
 [ext_resource type="Texture2D" uid="uid://frxi6fayhqky" path="res://art/rackSceen/seedRackBackground.svg" id="1_w62r0"]
 [ext_resource type="PackedScene" uid="uid://c0ntcpvg1x3m6" path="res://packet.tscn" id="2_5nmaf"]
@@ -10,10 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://c0a77m0h12taq" path="res://art/rackSceen/shelf1.svg" id="7_3qhyi"]
 [ext_resource type="Texture2D" uid="uid://bu7m5bd7hq6oe" path="res://art/rackSceen/WYpacketBack.svg" id="7_7yokc"]
 [ext_resource type="Texture2D" uid="uid://dwb51cxe3x03c" path="res://art/rackSceen/LSpacketBack.svg" id="9_ckbat"]
-[ext_resource type="Script" path="res://xMark.gd" id="11_261io"]
 [ext_resource type="Texture2D" uid="uid://bywqfjp523y37" path="res://art/rackSceen/XMark.svg" id="11_hlv7n"]
 [ext_resource type="Texture2D" uid="uid://cw27ama6qys5o" path="res://art/rackSceen/CheckMark.svg" id="12_fua6w"]
-[ext_resource type="Script" path="res://checkMark.gd" id="13_uscap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo470"]
 size = Vector2(278, 222)
@@ -76,7 +74,6 @@ position = Vector2(958, 540)
 texture = ExtResource("7_3qhyi")
 
 [node name="xMark" type="Area2D" parent="."]
-script = ExtResource("11_261io")
 
 [node name="Sprite2D" type="Sprite2D" parent="xMark"]
 position = Vector2(958, 538)
@@ -87,7 +84,6 @@ position = Vector2(368, 630)
 shape = SubResource("RectangleShape2D_wo470")
 
 [node name="checkMark" type="Area2D" parent="."]
-script = ExtResource("13_uscap")
 
 [node name="Sprite2D" type="Sprite2D" parent="checkMark"]
 position = Vector2(962, 540)
