@@ -17,7 +17,7 @@ func _ready():
 		initializePots()
 	for i in range(7):
 		get_node("Pot" + str(i)).update()
-		get_node("Pot" + str(i)).reset_wateredNum()
+		#get_node("Pot" + str(i)).reset_wateredNum()
 
 func initializePots():
 	for x in range(7):
