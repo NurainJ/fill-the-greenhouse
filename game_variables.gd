@@ -4,6 +4,7 @@ var temperature = 75
 var days_remaining = 40
 var activePlant = 0
 var current_scene = "res://start_screen.tscn"
+var waterConst = 0.1
 
 var plantStateClass = load("res://plant_state.gd")
 var plantStates = Array()
@@ -12,6 +13,9 @@ var possiblePlantStates = {}
 enum Species {LadySlipper, Pasque, WildYam}
 const speciesNames = {Species.LadySlipper: "ladySlipper", Species.Pasque: "pasque", Species.WildYam: "wildYam"}
 const speciesPaths = {Species.LadySlipper: "res://art/plant/ladySlipper/", Species.Pasque: "res://art/plant/pasque/", Species.WildYam: "res://art/plant/wildYam/"}
+
+# Health Numbers
+const waterNeeds = {Species.LadySlipper: 2, Species.Pasque: 2, Species.WildYam: 1}
 
 var initialStates = {}
 

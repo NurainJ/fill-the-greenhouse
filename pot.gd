@@ -2,10 +2,20 @@ extends Area2D
 
 @export var number : int;
 
+# Health variables
+var wateredNum:int =0;
+var yesWaterNum:int = 0;
+var waterConst = GameVariables.waterConst
+var waterNeed = GameVariables.waterNeeds[number]
+var health:float = 0.75
+var hasSeed = false
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().get_node("BlackScreen/BlackScreenPlayer").connect("is_black", _animation_finished.bind())
+
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,5 +33,45 @@ func _on_input_event(_viewport, event, _shape_idx):
 
 
 func _animation_finished():
-	GameVariables.plantStates[number] = GameVariables.plantStates[number].get_next_state()
+	if(hasSeed):
+		change_Health()
+	GameVariables.plantStates[number] = GameVariables.plantStates[number].get_next_state(health)
 	$plant.set_texture(load(GameVariables.plantStates[number].path))
+
+
+# Changing if there's a seed
+func give_seed():
+	hasSeed=true
+
+# Health related functions
+func increase_wateredNum():
+	wateredNum=wateredNum+1
+	print(wateredNum)
+	
+	
+func testing():
+	print("it gets the node.")
+
+
+func reset_wateredNum():
+	yesWaterNum = wateredNum
+	wateredNum=0
+
+func change_Health():
+	print("Old Health for Pot" +str(number)+": "+ str(health))
+	print("Water Need: " + str(waterNeed))
+	print("Water Num: "+ str(yesWaterNum))
+	if yesWaterNum == waterNeed:
+		if health>=(1-waterConst):
+			health = 1
+		else:
+			health= health+waterConst
+	else:
+		var diff = abs(yesWaterNum-waterNeed)
+		var newMult = waterConst*diff
+		health = health - newMult
+		if health<0:
+			health = 0
+			
+	print("New Health for Pot" +str(number)+": "+ str(health))
+		

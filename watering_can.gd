@@ -15,7 +15,19 @@ func _process(_delta):
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		isPlaying = true
+		
+		# Getting current pot
+		get_tree().root.get_node("Root").add_scene("res://main_screen.tscn")
+		var mainScreen = get_tree().root.get_node("Root/MainScreen")
+		mainScreen.visible = false
+		var currentPot = mainScreen.get_node("Pot"+str(GameVariables.activePlant))
+		currentPot.increase_wateredNum()
+
 		$AnimationPlayer.play("watering")
+		await $AnimationPlayer.animation_finished
+		mainScreen.visible = true
+		get_tree().root.get_node("Root").remove_child(mainScreen)
+
 
 func _input(_event: InputEvent):
 	if isPlaying:
