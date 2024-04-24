@@ -7,3 +7,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func resetPlant():
+	var currentSpecies = GameVariables.plantStates[GameVariables.activePlant].species
+	GameVariables.plantStates[GameVariables.activePlant] = GameVariables.initialStates[currentSpecies]
