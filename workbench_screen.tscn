@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cal3i4ptukm7r"]
+[gd_scene load_steps=39 format=3 uid="uid://cal3i4ptukm7r"]
 
 [ext_resource type="Texture2D" uid="uid://bx73fkc7ng2p" path="res://art/workbenchScreen/workbenchBackground.svg" id="1_4fkqx"]
 [ext_resource type="Script" path="res://workbench_screen.gd" id="1_hbnyc"]
@@ -903,6 +903,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../shovel:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_d1dfa"]
 resource_name = "plant_pasque"
@@ -1004,9 +1016,50 @@ tracks/7/keys = {
 "values": [2]
 }
 
+[sub_resource type="Animation" id="Animation_a8iar"]
+resource_name = "fail_plant_seeds"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("topPacket/topPacket:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("topPacket:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.7, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-500, 275), Vector2(-340, 140), Vector2(-340, 140), Vector2(-500, 275)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../shovel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5, 3.1, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqkb4"]
 _data = {
 "RESET": SubResource("Animation_bp6fn"),
+"fail_plant_seeds": SubResource("Animation_a8iar"),
 "plant_seeds": SubResource("Animation_d1dfa")
 }
 
