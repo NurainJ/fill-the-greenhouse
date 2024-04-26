@@ -2,9 +2,11 @@ extends Node
 
 var temperature = 75
 var days_remaining = 40
+var days_passed:float = 0
 var activePlant = 0
 var current_scene = "res://start_screen.tscn"
 var waterConst = 0.1
+var zero = 0.0000001
 
 var plantStateClass = load("res://plant_state.gd")
 var plantStates = Array()
@@ -16,6 +18,11 @@ const speciesPaths = {Species.LadySlipper: "res://art/plant/ladySlipper/", Speci
 
 # Health Numbers
 const waterNeeds = {Species.LadySlipper: 2, Species.Pasque: 2, Species.WildYam: 1}
+
+# Average water numbers
+# The first and second values of each list are the lower and upper bounds, respectively of 
+# of the water needs of the plant. The third value is the average per day.
+const waterNeedsList = {Species.LadySlipper: [0.8,1.2,1.0], Species.Pasque: [0.6,1.0,0.8], Species.WildYam: [0.3,0.7,0.5]}
 
 var initialStates = {}
 
@@ -70,6 +77,7 @@ func _ready():
 		for stateName in stateMachineData[species]:
 			var state = plantStateClass.new()
 			state.species = species
+			state.stateName = stateName
 			state.path = speciesPaths[species] + stateName + ".svg"
 			possiblePlantStates[stateName] = state
 	
@@ -79,6 +87,7 @@ func _ready():
 				var state = possiblePlantStates[stateName]
 				var nextState = possiblePlantStates[nextStateName]
 				state.add_next_state(nextState, stateMachineData[species][stateName][nextStateName])
+				#state.set_state_name(stateName)
 	initialStates[Species.LadySlipper] = possiblePlantStates["ladySlipperBlank"]
 	initialStates[Species.Pasque] = possiblePlantStates["pasqueBlank"]
 	initialStates[Species.WildYam] = possiblePlantStates["wildYamBlank"]
