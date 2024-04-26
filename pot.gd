@@ -60,10 +60,10 @@ func increase_wateredNum():
 	print(totalWater)
 	 
 
-
 func reset_wateredNum():
 	wateredNum=0
 
+# Changes the water component of the health
 func change_water_health():
 	waterAvg = totalWater/ GameVariables.days_passed
 	if(waterAvg>= waterLB and waterAvg<=waterUB):
@@ -77,7 +77,7 @@ func change_water_health():
 		if(diff<1):
 			waterHealth -= waterConst
 		else:
-			waterHealth=GameVariables.zero
+			waterHealth-= 2*waterConst
 			
 		
 	
