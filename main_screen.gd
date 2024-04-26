@@ -34,3 +34,8 @@ func _process(_delta):
 
 func _on_button_pressed():
 	$BlackScreen.fade_to_black()
+
+
+func _on_next_day_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		$BlackScreen.fade_to_black()
