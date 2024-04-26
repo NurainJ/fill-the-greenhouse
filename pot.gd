@@ -19,6 +19,13 @@ var waterLB:float = GameVariables.waterNeedsList[number][0]
 var waterUB:float = GameVariables.waterNeedsList[number][1]
 var waterTypical:float = GameVariables.waterNeedsList[number][2]
 
+# Temperature variables
+var currentTemp = GameVariables.temperature
+var tempHealth = 0.75;
+var tempLB:float = GameVariables.tempRanges[number][0]
+var tempUB:float = GameVariables.tempRanges[number][1]
+var tempTypical:int = GameVariables.tempRanges[number][2]
+var tempConst = GameVariables.tempConst
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -63,6 +70,16 @@ func increase_wateredNum():
 func reset_wateredNum():
 	wateredNum=0
 
+func change_temp_health():
+	if(currentTemp>= tempLB and currentTemp<=tempUB):
+		if tempHealth >=(1-tempConst):
+			tempHealth = 1
+		else:
+			tempHealth = tempHealth+tempConst
+	else:
+		if(currentTemp<tempLB):
+			var diff = tempLB-currentTemp
+
 # Changes the water component of the health
 func change_water_health():
 	waterAvg = totalWater/ GameVariables.days_passed
@@ -72,12 +89,14 @@ func change_water_health():
 		else:
 			waterHealth = waterHealth+waterConst
 	else:
-		var diff = abs(waterAvg-waterTypical)
-		#var ratio = diff/waterTypical
-		if(diff<1):
-			waterHealth -= waterConst
+		if(waterHealth<=(1-waterConst)):
+			waterHealth = GameVariables.zero
 		else:
-			waterHealth-= 2*waterConst
+			var diff = abs(waterAvg-waterTypical)			
+			if(diff<1):
+				waterHealth -= waterConst
+			else:
+				waterHealth-= 2*waterConst
 			
 		
 	
