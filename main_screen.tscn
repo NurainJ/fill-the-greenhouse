@@ -1,16 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbmq3p3y4g2lr"]
+[gd_scene load_steps=16 format=3 uid="uid://bbmq3p3y4g2lr"]
 
 [ext_resource type="Texture2D" uid="uid://bxr1m41ivo7u7" path="res://art/mainScreen/mainScreen.svg" id="1_dxj4q"]
+[ext_resource type="Texture2D" uid="uid://brifn2vvwth7e" path="res://art/mainScreen/mainScreenTemp.svg" id="1_la1a6"]
 [ext_resource type="Script" path="res://main_screen.gd" id="1_oresb"]
 [ext_resource type="Texture2D" uid="uid://clwxvcts6077q" path="res://art/mainScreen/thermometer.svg" id="3_nimvq"]
 [ext_resource type="Script" path="res://thermometer.gd" id="3_prkef"]
+[ext_resource type="Texture2D" uid="uid://c1ovi6d4rjtlh" path="res://art/mainScreen/workbenchItemsTemp.svg" id="4_r13km"]
 [ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="5_d8l18"]
 [ext_resource type="Script" path="res://calendar.gd" id="6_pl254"]
 [ext_resource type="Texture2D" uid="uid://b1yojfu3dia8f" path="res://art/mainScreen/calendar.svg" id="7_csqsa"]
 [ext_resource type="FontFile" uid="uid://bajqxy8ti2t5o" path="res://fonts/calendarFont.ttf" id="8_mcc1s"]
 [ext_resource type="PackedScene" uid="uid://budbwfgc7s4b8" path="res://pot.tscn" id="13_qpnaa"]
 [ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="13_sioij"]
-[ext_resource type="PackedScene" uid="uid://cjd8xraosecfm" path="res://volume_button.tscn" id="14_3h5qn"]
+[ext_resource type="PackedScene" path="res://volume_button.tscn" id="14_3h5qn"]
 [ext_resource type="PackedScene" uid="uid://chja3jifya2yp" path="res://black_screen.tscn" id="15_s6ion"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cwhq"]
@@ -24,6 +26,19 @@ script = ExtResource("1_oresb")
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_dxj4q")
+
+[node name="MainScreenTemp" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_la1a6")
+
+[node name="WorkbenchItemsTemp" type="TextureRect" parent="."]
+offset_left = -11.0
+offset_top = -12.0
+offset_right = 1909.0
+offset_bottom = 1068.0
+texture = ExtResource("4_r13km")
 
 [node name="Thermometer" type="Area2D" parent="."]
 script = ExtResource("3_prkef")

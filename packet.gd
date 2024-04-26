@@ -7,8 +7,8 @@ var isPlaying = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("../xMark").connect("input_event", Callable(self, "_on_xMark_input_event"))
-	get_node("../checkMark").connect("input_event", Callable(self, "_on_checkMark_input_event"))
+	SwipeDetector.connect("swipeRight", swipe_right.bind())
+	SwipeDetector.connect("swipeLeft", swipe_left.bind())
 	if order == 1:
 		z_index = 4
 	elif order == 2:
@@ -38,13 +38,6 @@ func _on_input_event(viewport, event, _shape_idx):
 			isPlaying = false 
 			frontShowing = !frontShowing
 			
-func _on_xMark_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		swipe_left()
-
-func _on_checkMark_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		swipe_right()
 
 func swipe_right(): 
 	var rootNode = get_tree().root.get_node("Root")
@@ -59,10 +52,8 @@ func swipe_right():
 	get_tree().root.get_node("Root").remove_child(mainScreen)
 	
 	if rootNode.get_node("Timer").is_stopped() and order == 1:
-		isPlaying = true
 		$AnimationPlayer.play("swipe_right")
 		await $AnimationPlayer.animation_finished
-		isPlaying = false
 		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
 		
 		await rootNode.add_scene("res://workbench_screen.tscn")
@@ -79,7 +70,6 @@ func swipe_right():
 		
 func swipe_left():
 	if get_tree().root.get_node("Root/Timer").is_stopped():
-		isPlaying = true
 		if order == 1:
 			$AnimationPlayer.play("swipe_left")
 			await $AnimationPlayer.animation_finished
@@ -94,7 +84,6 @@ func swipe_left():
 			await $AnimationPlayer.animation_finished
 			active = false
 			order = 2
-		isPlaying = false
 
 
 func _input(_event: InputEvent):
