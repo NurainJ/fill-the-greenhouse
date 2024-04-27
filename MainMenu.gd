@@ -3,7 +3,7 @@ extends Control
 
 
 #@onready var play = $MarginContainer/HBoxContainer/VBoxContainer/Play as Button
-@onready var settings = $MarginContainer/HBoxContainer/VBoxContainer/Instructions as Button
+@onready var settings = $MarginContainer/HBoxContainer/VBoxContainer/Settings as Button
 @onready var settings_menu = $SettingsMenu as SettingsMenu
 @onready var margin_container = $MarginContainer as MarginContainer
 
@@ -19,10 +19,6 @@ func on_settings_pressed() -> void:
 	margin_container.visible = false
 	settings_menu.set_process(true)
 	settings_menu.visible = true
-
-
-func on_exit_pressed() -> void:
-	get_tree().quit()
 
 
 func on_exit_settings_menu() -> void:
