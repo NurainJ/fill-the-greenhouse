@@ -48,6 +48,23 @@ func _process(_delta):
 				var tween = get_tree().create_tween()
 				tween.tween_property($shovel, "position", initialShovelPosition, 1)
 
+func plant_seeds(species: GameVariables.Species):
+	isAnimating = true
+	if GameVariables.soilPathIndicies[GameVariables.activePlant] == 0:
+		$rack/AnimationPlayer.play("fail_plant_seeds")
+		await $rack/AnimationPlayer.animation_finished
+		print("Hello")
+	else:
+		$rack/AnimationPlayer.play("plant_seeds")
+		await $rack/AnimationPlayer.animation_finished
+		GameVariables.plantStates[GameVariables.activePlant].species = species
+		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
+	isAnimating = false
+	
+func _input(_event: InputEvent):
+	if isAnimating:
+		get_viewport().set_input_as_handled()
+
 func _on_soil_bag_area_entered(area):
 	if !isAnimating and area == $shovel:
 		isShovelInsideSoil = true

@@ -23,9 +23,6 @@ func _ready():
 		sceneNames[scene].visible = false
 	sceneNames[GameVariables.current_scene].visible = true
 
-func add_scene(path):
-	pass
-
 func set_scene(path):
 	sceneNames[GameVariables.current_scene].visible = false
 	sceneNames[path].visible = true
