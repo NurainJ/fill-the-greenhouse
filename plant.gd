@@ -11,3 +11,4 @@ func _process(_delta):
 func resetPlant():
 	var currentSpecies = GameVariables.plantStates[GameVariables.activePlant].species
 	GameVariables.plantStates[GameVariables.activePlant] = GameVariables.initialStates[currentSpecies]
+	_ready()
