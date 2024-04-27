@@ -59,7 +59,7 @@ func swipe_right():
 		$AnimationPlayer.play("swipe_right")
 		await $AnimationPlayer.animation_finished
 		isPlaying = false
-		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
+		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "Blank"]
 		rootNode.set_scene("res://workbench_screen.tscn")
 		$AnimationPlayer.play("RESET")
 		await rootNode.get_node("WorkbenchScreen").plant_seeds(species)

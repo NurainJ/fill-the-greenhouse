@@ -62,6 +62,7 @@ func plant_seeds(species: GameVariables.Species):
 		await $rack/AnimationPlayer.animation_finished
 		GameVariables.plantStates[GameVariables.activePlant].species = species
 		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
+		$plant._ready()
 	isAnimating = false
 	
 func _input(event: InputEvent):

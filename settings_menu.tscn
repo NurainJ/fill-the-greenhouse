@@ -44,7 +44,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("3_qoui4")
 theme_override_font_sizes/font_size = 115
-text = "Settings"
+text = "Instructions"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -59,4 +59,4 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_gf3hp")
 theme_override_font_sizes/font_size = 50
-text = "Exit Settings"
+text = "Exit Instructions"
