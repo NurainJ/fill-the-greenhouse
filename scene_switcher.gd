@@ -20,22 +20,22 @@ func _ready():
 	"res://rack_screen.tscn": get_tree().root.get_node("Root/RackScreen"), 
 	"res://workbench_screen.tscn": get_tree().root.get_node("Root/WorkbenchScreen")}
 	for scene in sceneNames:
-		remove_child(sceneNames[scene])
-	add_child(sceneNames[GameVariables.current_scene])
+		sceneNames[scene].visible = false
+	sceneNames[GameVariables.current_scene].visible = true
 
 func add_scene(path):
-	add_child(sceneNames[path])
+	pass
 
 func set_scene(path):
-	add_child(sceneNames[path])
+	sceneNames[GameVariables.current_scene].visible = false
+	sceneNames[path].visible = true
 	sceneNames[path]._ready()
-	remove_child(sceneNames[GameVariables.current_scene])
 	GameVariables.current_scene = path
 	$Timer.start()
 
 func set_scene_back():
-	remove_child(sceneNames[GameVariables.current_scene])
+	sceneNames[GameVariables.current_scene].visible = false
 	GameVariables.current_scene = previous_scene[GameVariables.current_scene]
-	add_child(sceneNames[GameVariables.current_scene])
+	sceneNames[GameVariables.current_scene].visible = true
 	sceneNames[GameVariables.current_scene]._ready()
 	$Timer.start()

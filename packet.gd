@@ -50,13 +50,9 @@ func swipe_right():
 	var rootNode = get_tree().root.get_node("Root")
 	
 	# To change the boolean of the pot to say it has a seed.
-	get_tree().root.get_node("Root").add_scene("res://main_screen.tscn")
 	var mainScreen = get_tree().root.get_node("Root/MainScreen")
-	mainScreen.visible = false
 	var currentPot = mainScreen.get_node("Pot"+str(GameVariables.activePlant))
 	currentPot.give_seed()
-	mainScreen.visible = true
-	get_tree().root.get_node("Root").remove_child(mainScreen)
 	
 	if rootNode.get_node("Timer").is_stopped() and order == 1:
 		isPlaying = true
@@ -67,10 +63,14 @@ func swipe_right():
 		
 		await rootNode.add_scene("res://workbench_screen.tscn")
 		var player = get_tree().root.get_node("Root/WorkbenchScreen/rack/AnimationPlayer")
-		player.play("plant_seeds")
-		GameVariables.plantStates[GameVariables.activePlant].species = species
-		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
+		if GameVariables.soilPathIndicies[GameVariables.activePlant] == 0:
+			player.play("fail_plant_seeds")
+		else:
+			player.play("plant_seeds")
+			GameVariables.plantStates[GameVariables.activePlant].species = species
+			GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
 		rootNode.set_scene("res://workbench_screen.tscn")
+		await $AnimationPlayer.animation_finished
 		$AnimationPlayer.play("RESET")
 		await $AnimationPlayer.animation_finished
 
