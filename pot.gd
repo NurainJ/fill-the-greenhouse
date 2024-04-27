@@ -26,7 +26,6 @@ var tempLB:float = GameVariables.tempRanges[number][0]
 var tempUB:float = GameVariables.tempRanges[number][1]
 var tempTypical:int = GameVariables.tempRanges[number][2]
 var tempConst = GameVariables.tempConst
-var daysPassed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,7 +61,7 @@ func give_seed():
 
 # Health related functions
 func increase_wateredNum():
-	wateredNum = wateredNum+1
+	wateredNum=wateredNum+1
 	totalWater = totalWater +1
 	#print(wateredNum)
 	print(totalWater)
@@ -70,15 +69,6 @@ func increase_wateredNum():
 
 func reset_wateredNum():
 	wateredNum=0
-	
-	
-func reset_pot():
-	totalWater = 0
-	daysPassed = 0
-	waterHealth = 0.75
-	tempHealth = 0.75
-	health = 0.75
-	
 
 func change_temp_health():
 	if(currentTemp>= tempLB and currentTemp<=tempUB):
@@ -96,7 +86,7 @@ func change_temp_health():
 
 # Changes the water component of the health
 func change_water_health():
-	waterAvg = totalWater/ daysPassed
+	waterAvg = totalWater/ GameVariables.days_passed
 	if(waterAvg>= waterLB and waterAvg<=waterUB):
 		if waterHealth >=(1-waterConst):
 			waterHealth = 1
@@ -116,7 +106,6 @@ func change_water_health():
 	
 # Change Health with average 
 func change_Health():
-	daysPassed=daysPassed+1
 	print("Old Health for Pot" +str(number)+": "+ str(health))
 	change_water_health()
 	change_temp_health()

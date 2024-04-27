@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://6g11ad5yfnhh"]
+[gd_scene load_steps=2 format=3 uid="uid://6g11ad5yfnhh"]
 
 [ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="1_6b2c7"]
-[ext_resource type="PackedScene" uid="uid://xjdc73gs2tnf" path="res://audio_slider_settings.tscn" id="2_mekx1"]
 
 [node name="SettingsTabContainer" type="Control"]
 layout_mode = 3
@@ -23,6 +22,7 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
+tabs_visible = false
 
 [node name="How To Play" type="TabBar" parent="TabContainer"]
 layout_mode = 2
@@ -50,66 +50,10 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_6b2c7")
 theme_override_font_sizes/font_size = 50
-text = "Welcome to Fill The Greenhourse!
-To being, press \"Play\" and start off by choosing a pot.
-Then, add some soil into the pot and choose a seed packet.
-Make sure to water your plants daily and watch them grow!"
+text = "You've stumbled upon a deserted greenhouse at your local college. It's your 
+job to bring it to life!
+
+Plant seeds in the empty pots and do your best to take good care of them. Plants 
+are sensitive to soil, water, and temperature... Do your best 
+to grow as many of them as you can before the end of the semester!"
 horizontal_alignment = 1
-
-[node name="Music & SFX" type="TabBar" parent="TabContainer"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_6b2c7")
-theme_override_font_sizes/font_size = 36
-
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Music & SFX"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
-
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Music & SFX/MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Music & SFX/MarginContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 64
-
-[node name="AudioSliderSettings" parent="TabContainer/Music & SFX/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_mekx1")]
-visible = false
-layout_mode = 2
-bus_name = "Master"
-
-[node name="AudioSliderSettings2" parent="TabContainer/Music & SFX/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_mekx1")]
-layout_mode = 2
-
-[node name="AudioSliderSettings3" parent="TabContainer/Music & SFX/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_mekx1")]
-layout_mode = 2
-bus_name = "SFX"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Music & SFX/MarginContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
-
-[node name="Music Label" type="Label" parent="TabContainer/Music & SFX/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_6b2c7")
-theme_override_font_sizes/font_size = 50
-text = "Music Label:"
-
-[node name="SFX Label" type="Label" parent="TabContainer/Music & SFX/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_6b2c7")
-theme_override_font_sizes/font_size = 50
-text = "SFX Label:"
