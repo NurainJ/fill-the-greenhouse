@@ -22,12 +22,14 @@ func _process(_delta):
 	if !isAnimating and !isShovelInsidePot and !isShovelInsideSoil and Input.is_action_just_released("click"):
 		var tween = get_tree().create_tween()
 		tween.tween_property($shovel, "position", initialShovelPosition, 1)
-	if (isMouseInsideShovel or isDraggingShovel) and !isAnimating:
-		if Input.is_action_just_pressed("click"):
+		isDraggingShovel = false
+	
+	if !isAnimating:
+		if isMouseInsideShovel and Input.is_action_just_pressed("click"):
 			$shovel.scale = Vector2(1.1, 1.1)
 			offset = get_global_mouse_position() - $shovel.global_position
 			isDraggingShovel = true
-		if Input.is_action_pressed("click"):
+		if isDraggingShovel and Input.is_action_pressed("click"):
 			$shovel.global_position = get_global_mouse_position() - offset
 		if isShovelInsideSoil and Input.is_action_just_released("click"):
 			isShovelInsideSoil = false
@@ -47,6 +49,23 @@ func _process(_delta):
 			else:
 				var tween = get_tree().create_tween()
 				tween.tween_property($shovel, "position", initialShovelPosition, 1)
+
+func plant_seeds(species: GameVariables.Species):
+	isAnimating = true
+	if GameVariables.soilPathIndicies[GameVariables.activePlant] == 0:
+		$rack/AnimationPlayer.play("fail_plant_seeds")
+		await $rack/AnimationPlayer.animation_finished
+	else:
+		$rack/AnimationPlayer.play("plant_seeds")
+		await $rack/AnimationPlayer.animation_finished
+		GameVariables.plantStates[GameVariables.activePlant].species = species
+		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
+		$plant._ready()
+	isAnimating = false
+	
+func _input(event: InputEvent):
+	if isAnimating and event is InputEventMouseButton:
+		get_viewport().set_input_as_handled()
 
 func _on_soil_bag_area_entered(area):
 	if !isAnimating and area == $shovel:

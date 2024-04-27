@@ -17,7 +17,7 @@ func _ready():
 		initializePots()
 	for i in range(7):
 		get_node("Pot" + str(i)).update()
-		#get_node("Pot" + str(i)).reset_wateredNum()
+
 
 func initializePots():
 	for x in range(7):
@@ -37,3 +37,8 @@ func _on_button_pressed():
 	
 	if GameVariables.days_remaining == 0:
 		get_tree().root.get_node("Root").set_scene("res://end_screen.tscn")
+
+
+func _on_next_day_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		$BlackScreen.fade_to_black()

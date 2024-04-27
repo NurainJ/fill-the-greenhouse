@@ -17,4 +17,6 @@ func _on_input_event(_viewport, event, _shape_idx):
 
 func next_day():
 	GameVariables.days_remaining -= 1
+	GameVariables.days_passed += 1
+	print("Day "+ str(GameVariables.days_passed))
 	$Label.set_text(str(GameVariables.days_remaining))
