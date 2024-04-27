@@ -1,6 +1,6 @@
 extends Node
 
-var temperature = 75
+var temperature = 70
 var days_remaining = 40
 var days_passed:float = 0
 var activePlant = 0

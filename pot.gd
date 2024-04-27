@@ -18,6 +18,8 @@ var waterHealth:float = 0.75
 var waterLB:float = GameVariables.waterNeedsList[number][0]
 var waterUB:float = GameVariables.waterNeedsList[number][1]
 var waterTypical:float = GameVariables.waterNeedsList[number][2]
+var daysPassed = 0
+
 
 # Temperature variables
 var currentTemp = GameVariables.temperature
@@ -67,6 +69,13 @@ func increase_wateredNum():
 	print(totalWater)
 	 
 
+func reset_pot():
+	totalWater = 0
+	daysPassed = 0
+	waterHealth = 0.75
+	tempHealth = 0.75
+	health = 0.75
+
 func reset_wateredNum():
 	wateredNum=0
 
@@ -86,7 +95,7 @@ func change_temp_health():
 
 # Changes the water component of the health
 func change_water_health():
-	waterAvg = totalWater/ GameVariables.days_passed
+	waterAvg = totalWater/ daysPassed
 	if(waterAvg>= waterLB and waterAvg<=waterUB):
 		if waterHealth >=(1-waterConst):
 			waterHealth = 1
@@ -106,6 +115,7 @@ func change_water_health():
 	
 # Change Health with average 
 func change_Health():
+	daysPassed=daysPassed+1
 	print("Old Health for Pot" +str(number)+": "+ str(health))
 	change_water_health()
 	change_temp_health()
