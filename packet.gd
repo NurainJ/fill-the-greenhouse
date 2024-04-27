@@ -38,11 +38,11 @@ func _on_input_event(viewport, event, _shape_idx):
 			isPlaying = false 
 			frontShowing = !frontShowing
 			
-func _on_xMark_input_event(viewport, event, shape_idx):
+func _on_xMark_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		swipe_left()
 
-func _on_checkMark_input_event(viewport, event, shape_idx):
+func _on_checkMark_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		swipe_right()
 
@@ -50,13 +50,9 @@ func swipe_right():
 	var rootNode = get_tree().root.get_node("Root")
 	
 	# To change the boolean of the pot to say it has a seed.
-	get_tree().root.get_node("Root").add_scene("res://main_screen.tscn")
-	var mainScreen = get_tree().root.get_node("Root/MainScreen")
-	mainScreen.visible = false
+	var mainScreen = rootNode.get_node("MainScreen")
 	var currentPot = mainScreen.get_node("Pot"+str(GameVariables.activePlant))
 	currentPot.give_seed()
-	mainScreen.visible = true
-	get_tree().root.get_node("Root").remove_child(mainScreen)
 	
 	if rootNode.get_node("Timer").is_stopped() and order == 1:
 		isPlaying = true
@@ -64,15 +60,9 @@ func swipe_right():
 		await $AnimationPlayer.animation_finished
 		isPlaying = false
 		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
-		
-		await rootNode.add_scene("res://workbench_screen.tscn")
-		var player = get_tree().root.get_node("Root/WorkbenchScreen/rack/AnimationPlayer")
-		player.play("plant_seeds")
-		GameVariables.plantStates[GameVariables.activePlant].species = species
-		GameVariables.plantStates[GameVariables.activePlant] = GameVariables.possiblePlantStates[GameVariables.speciesNames[species] + "0"]
 		rootNode.set_scene("res://workbench_screen.tscn")
 		$AnimationPlayer.play("RESET")
-		await $AnimationPlayer.animation_finished
+		await rootNode.get_node("WorkbenchScreen").plant_seeds(species)
 
 	
 
