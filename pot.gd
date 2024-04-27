@@ -19,6 +19,13 @@ var waterLB:float = GameVariables.waterNeedsList[number][0]
 var waterUB:float = GameVariables.waterNeedsList[number][1]
 var waterTypical:float = GameVariables.waterNeedsList[number][2]
 
+# Temperature variables
+var currentTemp = GameVariables.temperature
+var tempHealth = 0.75;
+var tempLB:float = GameVariables.tempRanges[number][0]
+var tempUB:float = GameVariables.tempRanges[number][1]
+var tempTypical:int = GameVariables.tempRanges[number][2]
+var tempConst = GameVariables.tempConst
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -63,6 +70,20 @@ func increase_wateredNum():
 func reset_wateredNum():
 	wateredNum=0
 
+func change_temp_health():
+	if(currentTemp>= tempLB and currentTemp<=tempUB):
+		if tempHealth >=(1-tempConst):
+			tempHealth = 1
+		else:
+			tempHealth = tempHealth+tempConst
+	else:
+		var diff
+		if(currentTemp<tempLB):
+			diff = tempLB-currentTemp
+		else:
+			diff = currentTemp-tempUB
+		tempHealth = tempHealth-(diff*diff*tempConst/25)
+
 # Changes the water component of the health
 func change_water_health():
 	waterAvg = totalWater/ GameVariables.days_passed
@@ -72,28 +93,32 @@ func change_water_health():
 		else:
 			waterHealth = waterHealth+waterConst
 	else:
-		var diff = abs(waterAvg-waterTypical)
-		#var ratio = diff/waterTypical
-		if(diff<1):
-			waterHealth -= waterConst
+		if(waterHealth<=(waterConst)):
+			waterHealth = GameVariables.zero
 		else:
-			waterHealth-= 2*waterConst
+			var diff = abs(waterAvg-waterTypical)			
+			if(diff<1 ):
+				waterHealth -= waterConst
+			else:
+				waterHealth-= 2*waterConst
 			
 		
 	
-
-
 # Change Health with average 
 func change_Health():
 	print("Old Health for Pot" +str(number)+": "+ str(health))
 	change_water_health()
+	change_temp_health()
 	print("Total Wateer: " + str(totalWater))
 	print("Total Days: "+ str(GameVariables.days_passed))
 	print("Water per Day: " + str(waterAvg))
 	print("Times Watered Today: "+ str(wateredNum))
-	print("Lower Bound: "+ str(waterLB))
-	print("Upper Bound: "+ str(waterUB))
-	health = waterHealth
+	print("Temperature Health: "+ str(tempHealth))
+	print("Temperature Lower Bound: "+ str(tempLB))
+	print("Temperature Upper Bound: "+ str(tempUB))
+	#print("Water Lower Bound: "+ str(waterLB))
+	#print("Upper Bound: "+ str(waterUB))
+	health = waterHealth*0.5 +tempHealth*0.5
 	print("New Health for Pot" +str(number)+": "+ str(health))
 
 

@@ -10,7 +10,7 @@
 [ext_resource type="FontFile" uid="uid://bajqxy8ti2t5o" path="res://fonts/calendarFont.ttf" id="8_mcc1s"]
 [ext_resource type="Texture2D" uid="uid://dep51yxfj84pv" path="res://art/mainScreen/nextDayButton.svg" id="9_pt5pc"]
 [ext_resource type="PackedScene" uid="uid://budbwfgc7s4b8" path="res://pot.tscn" id="13_qpnaa"]
-[ext_resource type="PackedScene" uid="uid://cjd8xraosecfm" path="res://volume_button.tscn" id="14_3h5qn"]
+[ext_resource type="PackedScene" path="res://volume_button.tscn" id="14_3h5qn"]
 [ext_resource type="PackedScene" uid="uid://chja3jifya2yp" path="res://black_screen.tscn" id="15_s6ion"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cwhq"]
