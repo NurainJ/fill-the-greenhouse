@@ -28,7 +28,7 @@ const tempRanges = {Species.LadySlipper: [67,73,70], Species.Pasque: [63,69,66],
 # Average water numbers
 # The first and second values of each list are the lower and upper bounds, respectively of 
 # of the water needs of the plant. The third value is the average per day.
-const waterNeedsList = {Species.LadySlipper: [0.8,1.2,1.0], Species.Pasque: [0.6,1.0,0.8], Species.WildYam: [0.3,0.7,0.5]}
+const waterNeedsList = {Species.LadySlipper: [0.8,1.2,1.0], Species.Pasque: [0.6,1.0,0.8], Species.WildYam: [0.3,1.0,0.5]}
 
 var initialStates = {}
 
@@ -41,7 +41,7 @@ var smallPacketPaths = {Species.LadySlipper: "res://art/workbenchScreen/ladySlip
 
 var stateMachineData = {Species.LadySlipper: {
 						 "ladySlipperBlank": {}, 
-							 "ladySlipper0": {"ladySlipper1": 0.45,                            "ladySlipperDead": 0.01}, 
+							 "ladySlipper0": {"ladySlipper1": 0.45,                            "ladySlipperDead": 0.001}, 
 							 "ladySlipper1": {"ladySlipper2": 0.3, "ladySlipper1Dying": 0.0126, "ladySlipperDead": 0.001}, 
 							 "ladySlipper2": {"ladySlipper3": 0.15, "ladySlipper2Dying": 0.009, "ladySlipperDead": 0.001}, 
 							 "ladySlipper3": {"ladySlipper4": 0.05, "ladySlipper3Dying": 0.0045, "ladySlipperDead": 0.001}, 

@@ -77,8 +77,12 @@ func change_temp_health():
 		else:
 			tempHealth = tempHealth+tempConst
 	else:
+		var diff
 		if(currentTemp<tempLB):
-			var diff = tempLB-currentTemp
+			diff = tempLB-currentTemp
+		else:
+			diff = currentTemp-tempUB
+		tempHealth = tempHealth-(diff*diff*tempConst/25)
 
 # Changes the water component of the health
 func change_water_health():
@@ -89,30 +93,32 @@ func change_water_health():
 		else:
 			waterHealth = waterHealth+waterConst
 	else:
-		if(waterHealth<=(1-waterConst)):
+		if(waterHealth<=(waterConst)):
 			waterHealth = GameVariables.zero
 		else:
 			var diff = abs(waterAvg-waterTypical)			
-			if(diff<1):
+			if(diff<1 ):
 				waterHealth -= waterConst
 			else:
 				waterHealth-= 2*waterConst
 			
 		
 	
-
-
 # Change Health with average 
 func change_Health():
 	print("Old Health for Pot" +str(number)+": "+ str(health))
 	change_water_health()
+	change_temp_health()
 	print("Total Wateer: " + str(totalWater))
 	print("Total Days: "+ str(GameVariables.days_passed))
 	print("Water per Day: " + str(waterAvg))
 	print("Times Watered Today: "+ str(wateredNum))
-	print("Lower Bound: "+ str(waterLB))
-	print("Upper Bound: "+ str(waterUB))
-	health = waterHealth
+	print("Temperature Health: "+ str(tempHealth))
+	print("Temperature Lower Bound: "+ str(tempLB))
+	print("Temperature Upper Bound: "+ str(tempUB))
+	#print("Water Lower Bound: "+ str(waterLB))
+	#print("Upper Bound: "+ str(waterUB))
+	health = waterHealth*0.5 +tempHealth*0.5
 	print("New Health for Pot" +str(number)+": "+ str(health))
 
 
