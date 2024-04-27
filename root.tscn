@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw78amu1t206c"]
+[gd_scene load_steps=10 format=3 uid="uid://cw78amu1t206c"]
 
 [ext_resource type="Script" path="res://scene_switcher.gd" id="1_swgwl"]
 [ext_resource type="PackedScene" uid="uid://ige871nt07ne" path="res://start_screen.tscn" id="1_tfkk2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cal3i4ptukm7r" path="res://workbench_screen.tscn" id="5_ty7xw"]
 [ext_resource type="PackedScene" uid="uid://d1rml3872ffkl" path="res://rack_screen.tscn" id="6_44sp1"]
 [ext_resource type="Script" path="res://rack_screen.gd" id="8_is3qu"]
+[ext_resource type="PackedScene" uid="uid://prmpicn1f0it" path="res://end_screen.tscn" id="9_2rsic"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_swgwl")
@@ -24,6 +25,8 @@ script = ExtResource("1_swgwl")
 
 [node name="RackScreen" parent="." instance=ExtResource("6_44sp1")]
 script = ExtResource("8_is3qu")
+
+[node name="EndScreen" parent="." instance=ExtResource("9_2rsic")]
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

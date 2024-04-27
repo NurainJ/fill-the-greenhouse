@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://prmpicn1f0it"]
+
+[ext_resource type="Script" path="res://endScreen.gd" id="1_jx38v"]
+[ext_resource type="Texture2D" path="res://art/endScreen/EndScreen.svg" id="2_birpp"]
+[ext_resource type="Texture2D" path="res://PotsEndScreen.svg" id="3_ow5kc"]
+[ext_resource type="PackedScene" uid="uid://budbwfgc7s4b8" path="res://pot.tscn" id="4_n5ptp"]
+
+[node name="endScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jx38v")
+
+[node name="EndScreen" type="Sprite2D" parent="."]
+position = Vector2(962.5, 547.5)
+scale = Vector2(1.00469, 1.00833)
+texture = ExtResource("2_birpp")
+
+[node name="PotsEndScreen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(962.5, 548)
+scale = Vector2(1.00365, 1.01852)
+texture = ExtResource("3_ow5kc")
+
+[node name="Pot0" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(-657, 118)
+rotation = 0.00963019
+scale = Vector2(1.1, 1.15)
+skew = -0.000583768
+
+[node name="Pot1" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(-466, -76)
+rotation = 0.00963019
+scale = Vector2(1.061, 1.109)
+skew = -0.000583768
+
+[node name="Pot2" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(-322, -332)
+rotation = 0.00963019
+scale = Vector2(1.1, 1.15)
+skew = -0.000583768
+
+[node name="Pot3" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(-39, -422)
+rotation = 0.00963019
+scale = Vector2(1.06, 1.109)
+skew = -0.000583768
+
+[node name="Pot4" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(147, -331)
+rotation = 0.00963019
+scale = Vector2(1.1, 1.15)
+skew = -0.000583768
+
+[node name="Pot5" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(298, -107)
+rotation = 0.00963019
+scale = Vector2(1.1, 1.15)
+skew = -0.000583768
+
+[node name="Pot6" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(520, 144)
+rotation = 0.00963019
+scale = Vector2(1.061, 1.109)
+skew = -0.000583768
