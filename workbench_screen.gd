@@ -46,6 +46,8 @@ func _process(_delta):
 			if (GameVariables.soilPathIndicies[GameVariables.activePlant] > 0):
 				isAnimating = true
 				await $shovel.remove_soil()
+				var currentPot = get_tree().root.get_node("Root/MainScreen/Pot"+str(GameVariables.activePlant))
+				currentPot.reset_pot()
 			else:
 				var tween = get_tree().create_tween()
 				tween.tween_property($shovel, "position", initialShovelPosition, 1)
