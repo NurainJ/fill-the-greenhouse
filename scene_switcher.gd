@@ -7,7 +7,8 @@ var previous_scene = {
 	"res://calendar_screen.tscn": "res://main_screen.tscn", 
 	"res://thermometer_screen.tscn": "res://main_screen.tscn", 
 	"res://rack_screen.tscn": "res://workbench_screen.tscn", 
-	"res://workbench_screen.tscn": "res://main_screen.tscn"}
+	"res://workbench_screen.tscn": "res://main_screen.tscn",
+	"res://end_screen.tscn" : "res://main_screen.tscn"}
 var sceneNames = {}
 	
 
@@ -18,7 +19,9 @@ func _ready():
 	"res://calendar_screen.tscn": get_tree().root.get_node("Root/CalendarScreen"), 
 	"res://thermometer_screen.tscn": get_tree().root.get_node("Root/ThermometerScreen"), 
 	"res://rack_screen.tscn": get_tree().root.get_node("Root/RackScreen"), 
-	"res://workbench_screen.tscn": get_tree().root.get_node("Root/WorkbenchScreen")}
+	"res://workbench_screen.tscn": get_tree().root.get_node("Root/WorkbenchScreen"),
+	"res://end_screen.tscn": get_tree().root.get_node("Root/EndScreen")}
+
 	for scene in sceneNames:
 		remove_child(sceneNames[scene])
 	add_child(sceneNames[GameVariables.current_scene])

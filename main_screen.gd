@@ -34,3 +34,6 @@ func _process(_delta):
 
 func _on_button_pressed():
 	$BlackScreen.fade_to_black()
+	
+	if GameVariables.days_remaining == 0:
+		get_tree().root.get_node("Root").set_scene("res://end_screen.tscn")
