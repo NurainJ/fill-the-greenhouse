@@ -1,6 +1,6 @@
 extends Area2D
 
-var isPlaying = false
+var isAnimating = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +13,7 @@ func _process(_delta):
 
 
 func add_soil():
-	isPlaying = true
+	isAnimating = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(650, 175), 0.1)
 	$AnimationPlayer.play("fill_soil")
@@ -21,7 +21,7 @@ func add_soil():
 	get_parent().isAnimating = false
 
 func remove_soil():
-	isPlaying = true
+	isAnimating = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(1295, 473), 0.1)
 	tween.tween_property(self, "rotation", deg_to_rad(-34), 0.1)
@@ -36,9 +36,9 @@ func remove_soil():
 	get_parent().isAnimating = false
 	
 func _input(_event: InputEvent):
-	if isPlaying:
+	if isAnimating:
 		get_viewport().set_input_as_handled()
 
 
 func _on_animation_player_animation_finished(_anim_name):
-	isPlaying = false
+	isAnimating = false

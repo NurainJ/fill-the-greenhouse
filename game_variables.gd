@@ -1,9 +1,9 @@
 extends Node
 
-var temperature = 70
-var days_remaining = 40
+var temperature:int = 70
+var days_remaining:int = 40
 var days_passed:float = 0
-var activePlant = 0
+var activePlant:int = 0 # An int from 0 to 7 (exclusive) representing which plant is currently selected
 var current_scene = "res://start_screen.tscn"
 
 var waterConst = 0.1
@@ -11,8 +11,10 @@ var tempConst = 0.1
 
 var zero = 0.0000001
 
-var plantStateClass = load("res://plant_state.gd")
-var plantStates = Array()
+# An array of the current state for each of the 7 plants
+var plantStates = Array() 
+
+# A map with String state names as keys and plantStates as values of all possible plant states
 var possiblePlantStates = {}
 
 enum Species {LadySlipper, Pasque, WildYam}
@@ -30,9 +32,10 @@ const tempRanges = {Species.LadySlipper: [67,73,70], Species.Pasque: [63,69,66],
 # of the water needs of the plant. The third value is the average per day.
 const waterNeedsList = {Species.LadySlipper: [0.8,1.2,1.0], Species.Pasque: [0.6,1.0,0.8], Species.WildYam: [0.3,1.0,0.5]}
 
+# A map with Species as keys and plantStates of empty plants as values
 var initialStates = {}
 
-var soilPathIndicies = Array() #an array of ints [0, 4) where each int represents the soil state of that pot
+var soilPathIndicies = Array() # An array of ints [0, 4) where each int represents the soil state of that pot
 var possibleSoilPaths = ["res://art/pot/potSoilEmpty.svg", "res://art/pot/potSoilFull.svg", "res://art/pot/potSoilOverfull1.svg", "res://art/pot/potSoilOverfull2.svg"]
 
 var smallPacketPaths = {Species.LadySlipper: "res://art/workbenchScreen/ladySlipperPacketSmall.svg", 
@@ -79,6 +82,9 @@ var stateMachineData = {Species.LadySlipper: {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var plantStateClass = load("res://plant_state.gd")
+	
+	# Initalize a PlantState for each state in stateMachineData
 	for species in stateMachineData: 
 		for stateName in stateMachineData[species]:
 			var state = plantStateClass.new()
@@ -87,6 +93,7 @@ func _ready():
 			state.path = speciesPaths[species] + stateName + ".svg"
 			possiblePlantStates[stateName] = state
 	
+	# For each PlantState, add the necessary nextStates with transition probabilites
 	for species in stateMachineData:
 		for stateName in stateMachineData[species]:
 			for nextStateName in stateMachineData[species][stateName]:
@@ -94,9 +101,8 @@ func _ready():
 				var nextState = possiblePlantStates[nextStateName]
 				state.add_next_state(nextState, stateMachineData[species][stateName][nextStateName])
 				#state.set_state_name(stateName)
+				
+	# Set the initialStates for all species
 	initialStates[Species.LadySlipper] = possiblePlantStates["ladySlipperBlank"]
 	initialStates[Species.Pasque] = possiblePlantStates["pasqueBlank"]
 	initialStates[Species.WildYam] = possiblePlantStates["wildYamBlank"]
-
-func _process(_delta):
-	pass

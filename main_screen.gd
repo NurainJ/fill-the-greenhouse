@@ -11,7 +11,7 @@ const PotPosition = [
 	Vector2(595, 65), 
 	Vector2(814, 154)]
 	
-# Called when the node enters the scene tree for the first time.
+# Initialize the pots if necessary and update their graphics
 func _ready():
 	if !isInitialized:
 		initializePots()
@@ -20,19 +20,14 @@ func _ready():
 
 
 func initializePots():
+	# Default each plant to a pot with no soil and a LadySlipper without seeds
 	for x in range(7):
 			GameVariables.soilPathIndicies.append(0)
 			GameVariables.plantStates.append(GameVariables.initialStates[GameVariables.Species.LadySlipper])
 			
 	isInitialized = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-
-
+# When the next day button is clicked, fade to black. Transition to end game if it is the last day.
 func _on_next_day_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		$BlackScreen.fade_to_black()
