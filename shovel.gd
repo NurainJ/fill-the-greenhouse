@@ -30,6 +30,8 @@ func remove_soil():
 		$AnimationPlayer.play("remove_soil")
 	else:
 		$AnimationPlayer.play("remove_plant")
+		var currentPot = get_tree().root.get_node("Root/MainScreen/Pot"+str(GameVariables.activePlant))
+		currentPot.reset_pot()
 	await $AnimationPlayer.animation_finished
 	get_parent().isAnimating = false
 	

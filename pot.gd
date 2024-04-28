@@ -8,7 +8,6 @@ var yesWaterNum:int = 0;
 var waterConst = GameVariables.waterConst
 var waterNeed = GameVariables.waterNeeds[number]
 var health:float = 0.75
-var hasSeed
 
 
 # average water model
@@ -29,37 +28,35 @@ var tempUB:float = GameVariables.tempRanges[number][1]
 var tempTypical:int = GameVariables.tempRanges[number][2]
 var tempConst = GameVariables.tempConst
 
-# Called when the node enters the scene tree for the first time.
+# Connect this pot to the black button so that when the next day is triggered, _animation_finished() runs
 func _ready():
-	get_parent().get_node("/root/Root/EndScreen").connect("is_black", _animation_finished.bind())
+	get_parent().get_node("/root/Root/MainScreen/BlackScreen/BlackScreenPlayer").connect("is_black", _animation_finished.bind())
 
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
+# Redraw the correct plant and soil sprites
 func update():
 	$plant.set_texture(load(GameVariables.plantStates[number].path))
 	$soil.set_texture(load(GameVariables.possibleSoilPaths[GameVariables.soilPathIndicies[number]]))
 
+
+# If the pot is clicked, set the active plant to this pot number and switch the workbench screen
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		GameVariables.activePlant = number
 		get_tree().root.get_node("Root").set_scene("res://workbench_screen.tscn")
 
 
+# When the screen is black, update the pot health and plant state
 func _animation_finished():
-	if(hasSeed):
+	# If the current plant state is not the inital state for this species (if the pot is not empty), update health
+	var currentState = GameVariables.plantStates[number]
+	if(currentState != GameVariables.initialStates[currentState.species]):
 		change_Health()
-		reset_wateredNum()
+		reset_wateredNum() #TODO: Confirm this is correct
+	
 	GameVariables.plantStates[number] = GameVariables.plantStates[number].get_next_state(health)
 	$plant.set_texture(load(GameVariables.plantStates[number].path))
 
-
-# Changing if there's a seed
-func give_seed():
-	hasSeed=true
 
 # Health related functions
 func increase_wateredNum():
@@ -105,14 +102,13 @@ func change_water_health():
 		if(waterHealth<=(waterConst)):
 			waterHealth = GameVariables.zero
 		else:
-			var diff = abs(waterAvg-waterTypical)			
+			var diff = abs(waterAvg-waterTypical)
 			if(diff<1 ):
 				waterHealth -= waterConst
 			else:
 				waterHealth-= 2*waterConst
-			
-		
-	
+
+
 # Change Health with average 
 func change_Health():
 	daysPassed=daysPassed+1

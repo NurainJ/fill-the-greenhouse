@@ -1,20 +1,11 @@
 extends Sprite2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-
 func fade_to_black():
 	visible = true
 	$BlackScreenPlayer.play("fade_to_black")
-	
 
+
+# When the black screen is showing, no other clicking is allowed
 func _input(_event: InputEvent):
 	if is_visible():
 		get_viewport().set_input_as_handled()
