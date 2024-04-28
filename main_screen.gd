@@ -32,13 +32,9 @@ func _process(_delta):
 	pass
 
 
-func _on_button_pressed():
-	$BlackScreen.fade_to_black()
-	
-	if GameVariables.days_remaining == 0:
-		get_tree().root.get_node("Root").set_scene("res://end_screen.tscn")
-
 
 func _on_next_day_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		$BlackScreen.fade_to_black()
+		if GameVariables.days_remaining == 1:
+			get_tree().root.get_node("Root").set_scene("res://end_screen.tscn")
