@@ -21,7 +21,6 @@ var daysPassed = 0
 
 
 # Temperature variables
-var currentTemp = GameVariables.temperature
 var tempHealth = 0.75;
 var tempLB:float = GameVariables.tempRanges[number][0]
 var tempUB:float = GameVariables.tempRanges[number][1]
@@ -62,10 +61,9 @@ func _animation_finished():
 func increase_wateredNum():
 	wateredNum=wateredNum+1
 	totalWater = totalWater +1
-	#print(wateredNum)
 	print(totalWater)
 	 
-
+# Resets variables for the pot after being thrown out
 func reset_pot():
 	totalWater = 0
 	daysPassed = 0
@@ -73,21 +71,24 @@ func reset_pot():
 	tempHealth = 0.75
 	health = 0.75
 
+# Resets the waterNum
 func reset_wateredNum():
 	wateredNum=0
 
+# Uses the upper and lower bounds the temperature health for the plant found in 
+# Gamevariables to detrimne whter to increase or decrease temperature health
 func change_temp_health():
-	if(currentTemp>= tempLB and currentTemp<=tempUB):
+	if(GameVariables.temperature>= tempLB and GameVariables.temperature<=tempUB):
 		if tempHealth >=(1-tempConst):
 			tempHealth = 1
 		else:
 			tempHealth = tempHealth+tempConst
 	else:
 		var diff
-		if(currentTemp<tempLB):
-			diff = tempLB-currentTemp
+		if(GameVariables.temperature<tempLB):
+			diff = tempLB-GameVariables.temperature
 		else:
-			diff = currentTemp-tempUB
+			diff = GameVariables.temperature-tempUB
 		tempHealth = tempHealth-(diff*diff*tempConst/25)
 
 # Changes the water component of the health
@@ -115,15 +116,17 @@ func change_Health():
 	print("Old Health for Pot" +str(number)+": "+ str(health))
 	change_water_health()
 	change_temp_health()
-	print("Total Wateer: " + str(totalWater))
-	print("Total Days: "+ str(GameVariables.days_passed))
+	print("Total Water: " + str(totalWater))
+	print("Total Days: "+ str(daysPassed))
 	print("Water per Day: " + str(waterAvg))
+
 	print("Times Watered Today: "+ str(wateredNum))
+	print("Water Health: "+ str(waterHealth))
 	print("Temperature Health: "+ str(tempHealth))
 	print("Temperature Lower Bound: "+ str(tempLB))
 	print("Temperature Upper Bound: "+ str(tempUB))
-	#print("Water Lower Bound: "+ str(waterLB))
-	#print("Upper Bound: "+ str(waterUB))
+	print("Actual Temperature: "+ str(GameVariables.temperature))
+
 	health = waterHealth*0.5 +tempHealth*0.5
 	print("New Health for Pot" +str(number)+": "+ str(health))
 
