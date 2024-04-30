@@ -1185,6 +1185,7 @@ texture = ExtResource("10_ikdqk")
 libraries = {
 "": SubResource("AnimationLibrary_rt1o3")
 }
+speed_scale = 1.5
 
 [node name="removedPlant" type="Sprite2D" parent="shovel"]
 visible = false
@@ -1231,6 +1232,7 @@ shape = SubResource("RectangleShape2D_ptitu")
 libraries = {
 "": SubResource("AnimationLibrary_kqkb4")
 }
+speed_scale = 1.25
 
 [connection signal="input_event" from="BackButton" to="plant" method="_on_back_button_input_event"]
 [connection signal="area_entered" from="potSoil" to="." method="_on_pot_soil_area_entered"]

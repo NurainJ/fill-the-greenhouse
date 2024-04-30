@@ -47,6 +47,7 @@ func _on_input_event(_viewport, event, _shape_idx):
 
 # When the screen is black, update the pot health and plant state
 func _animation_finished():
+	
 	# If the current plant state is not the inital state for this species (if the pot is not empty), update health
 	var currentState = GameVariables.plantStates[number]
 	if(currentState != GameVariables.initialStates[currentState.species]):
@@ -55,6 +56,7 @@ func _animation_finished():
 	
 	GameVariables.plantStates[number] = GameVariables.plantStates[number].get_next_state(health)
 	$plant.set_texture(load(GameVariables.plantStates[number].path))
+	update()
 
 
 # Health related functions
@@ -90,6 +92,8 @@ func change_temp_health():
 		else:
 			diff = GameVariables.temperature-tempUB
 		tempHealth = tempHealth-(diff*diff*tempConst/25)
+	if(tempHealth<tempConst):
+		tempHealth=0
 
 # Changes the water component of the health
 func change_water_health():
@@ -100,18 +104,19 @@ func change_water_health():
 		else:
 			waterHealth = waterHealth+waterConst
 	else:
-		if(waterHealth<=(waterConst)):
-			waterHealth = GameVariables.zero
+		var diff = abs(waterAvg-waterTypical)
+		if(diff<1 ):
+			waterHealth -= waterConst
 		else:
-			var diff = abs(waterAvg-waterTypical)
-			if(diff<1 ):
-				waterHealth -= waterConst
-			else:
-				waterHealth-= 2*waterConst
+			waterHealth-= 2*waterConst
+		if(waterHealth<=(waterConst)):
+			waterHealth = 0
+			
 
 
 # Change Health with average 
 func change_Health():
+	print("-------------------------------------------")
 	daysPassed=daysPassed+1
 	print("Old Health for Pot" +str(number)+": "+ str(health))
 	change_water_health()
@@ -119,35 +124,13 @@ func change_Health():
 	print("Total Water: " + str(totalWater))
 	print("Total Days: "+ str(daysPassed))
 	print("Water per Day: " + str(waterAvg))
-
 	print("Times Watered Today: "+ str(wateredNum))
 	print("Water Health: "+ str(waterHealth))
-	print("Temperature Health: "+ str(tempHealth))
-	print("Temperature Lower Bound: "+ str(tempLB))
-	print("Temperature Upper Bound: "+ str(tempUB))
-	print("Actual Temperature: "+ str(GameVariables.temperature))
+	#print("Temperature Health: "+ str(tempHealth))
+	#print("Temperature Lower Bound: "+ str(tempLB))
+	#print("Temperature Upper Bound: "+ str(tempUB))
+	#print("Actual Temperature: "+ str(GameVariables.temperature))
 
 	health = waterHealth*0.5 +tempHealth*0.5
 	print("New Health for Pot" +str(number)+": "+ str(health))
-
-
-
- # Change Health with discrete math
-#func change_Health():
-	#print("Old Health for Pot" +str(number)+": "+ str(health))
-	#print("Water Need: " + str(waterNeed))
-	#print("Water Num: "+ str(wateredNum))
-	#if wateredNum == waterNeed:
-		#if health>=(1-waterConst):
-			#health = 1
-		#else:
-			#health= health+waterConst
-	#else:
-		#var diff = abs(wateredNum-waterNeed)
-		#var newMult = waterConst*diff
-		#health = health - newMult
-		#if health<0:
-			#health = 0
-			#
-	#print("New Health for Pot" +str(number)+": "+ str(health))
 
