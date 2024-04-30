@@ -1,6 +1,6 @@
 # Fill the Greenhouse
 ## Introduction
-Software Design and Development (COMP 225) semester long project;
+Software Design and Development (COMP 225) semester-long project;
 [blurb about gameplay]
 
 ## Setup
@@ -12,7 +12,7 @@ After starting the development server with npm start, you can edit any files in 
 
 If you want to customize your build like we did, like adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the webpack/base.js file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
 
-##References
+## References
 Phaser Template: https://github.com/photonstorm/phaser3-project-template
 
 Video with Template: https://www.youtube.com/watch?v=6CR9pKJI2Lc
