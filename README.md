@@ -1,9 +1,9 @@
 # Fill the Greenhouse
-##Introduction
+## Introduction
 Software Design and Development (COMP 225) semester long project;
 [blurb about gameplay]
 
-##Setup
+## Setup
 Node.js is required to install dependencies and run scripts via npm (Node only used for build, game is not run on it)
 
 After cloning the repo, run npm install from your project directory. Then, you can start the local development server by running npm start.
