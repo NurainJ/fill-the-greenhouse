@@ -4,6 +4,4 @@
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_4nj86")
-volume_db = -14.0
 autoplay = true
-bus = &"Music"
