@@ -25,11 +25,11 @@ tracks/1/path = NodePath("BlackScreenPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.0001),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"emit_is_black"
+"method": &"emit_nextDay"
 }]
 }
 

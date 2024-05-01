@@ -1,6 +1,7 @@
 extends Node2D
 const PotResouce = preload("res://pot.tscn")
 var isInitialized = false
+signal nextDay
 
 const PotPosition = [
 	Vector2(-826, 154), 
@@ -24,7 +25,7 @@ func initializePots():
 	for x in range(7):
 			GameVariables.soilPathIndicies.append(0)
 			GameVariables.plantStates.append(GameVariables.initialStates[GameVariables.Species.LadySlipper])
-			
+			nextDay.connect(get_node("Pot" + str(x))._animation_finished)
 	isInitialized = true
 
 # When the next day button is clicked, fade to black. Transition to end game if it is the last day.

@@ -1,7 +1,5 @@
 extends AnimationPlayer
 
-signal is_black
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,5 +9,5 @@ func _ready():
 func _process(_delta):
 	pass
 
-func emit_is_black():
-	is_black.emit()
+func emit_nextDay():
+	get_tree().root.get_node("/root/Root/MainScreen").emit_signal("nextDay")

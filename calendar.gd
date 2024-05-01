@@ -3,7 +3,7 @@ extends Area2D
 # Reset the calendar text. Set up the calendar to listen for the next day transition.
 func _ready():
 	$Label.set_text(str(GameVariables.days_remaining))
-	get_parent().get_node("BlackScreen/BlackScreenPlayer").connect("is_black", next_day.bind())
+	get_parent().connect("nextDay", next_day.bind())
 
 
 # If the calendar is clicked, switch to the calendar screen.

@@ -29,7 +29,7 @@ var tempConst = GameVariables.tempConst
 
 # Connect this pot to the black button so that when the next day is triggered, _animation_finished() runs
 func _ready():
-	get_parent().get_node("/root/Root/MainScreen/BlackScreen/BlackScreenPlayer").connect("is_black", _animation_finished.bind())
+	pass
 
 
 # Redraw the correct plant and soil sprites
