@@ -11,10 +11,13 @@ func _ready():
 	get_node("../checkMark").connect("input_event", Callable(self, "_on_checkMark_input_event"))
 	if order == 1:
 		z_index = 4
+		position.y = 540
 	elif order == 2:
 		z_index = 2
+		position.y = 520
 	elif order == 3:
 		z_index = 1
+		position.y = 500
 
 
 func _on_input_event(_viewport, event, _shape_idx):
@@ -41,6 +44,8 @@ func _on_xMark_input_event(_viewport, event, _shape_idx):
 			isAnimating = true
 			# Animate this packet based on its order and update order.
 			if order == 1:
+				if !frontShowing:
+					$AnimationPlayer.play("flip_forward")
 				$AnimationPlayer.play("swipe_left")
 				await $AnimationPlayer.animation_finished
 				get_parent().move_child(self, 1)
