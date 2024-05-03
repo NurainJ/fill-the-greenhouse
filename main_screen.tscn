@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbmq3p3y4g2lr"]
+[gd_scene load_steps=16 format=3 uid="uid://bbmq3p3y4g2lr"]
 
 [ext_resource type="Texture2D" uid="uid://bxr1m41ivo7u7" path="res://art/mainScreen/mainScreen.svg" id="1_dxj4q"]
 [ext_resource type="Script" path="res://main_screen.gd" id="1_oresb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dep51yxfj84pv" path="res://art/mainScreen/nextDayButton.svg" id="9_pt5pc"]
 [ext_resource type="PackedScene" uid="uid://budbwfgc7s4b8" path="res://pot.tscn" id="13_qpnaa"]
 [ext_resource type="PackedScene" uid="uid://cjd8xraosecfm" path="res://volume_button.tscn" id="14_3h5qn"]
+[ext_resource type="Script" path="res://poster.gd" id="14_rwpw1"]
 [ext_resource type="PackedScene" uid="uid://chja3jifya2yp" path="res://black_screen.tscn" id="15_s6ion"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cwhq"]
@@ -106,6 +107,21 @@ position = Vector2(814, 154)
 number = 6
 
 [node name="VolumeButton" parent="." instance=ExtResource("14_3h5qn")]
+
+[node name="Poster" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("14_rwpw1")
+
+[node name="Label" type="Label" parent="Poster"]
+offset_left = -774.0
+offset_top = -196.0
+offset_right = -638.0
+offset_bottom = -65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_mcc1s")
+theme_override_font_sizes/font_size = 130
+text = "3"
+horizontal_alignment = 1
 
 [connection signal="input_event" from="Thermometer" to="Thermometer" method="_on_input_event"]
 [connection signal="mouse_entered" from="Thermometer" to="Thermometer" method="_on_mouse_entered"]

@@ -26,6 +26,7 @@ func initializePots():
 			GameVariables.soilPathIndicies.append(0)
 			GameVariables.plantStates.append(GameVariables.initialStates[GameVariables.Species.LadySlipper])
 			nextDay.connect(get_node("Pot" + str(x))._animation_finished)
+	nextDay.connect(get_node("Poster").nextDay)
 	isInitialized = true
 
 # When the next day button is clicked, fade to black. Transition to end game if it is the last day.
