@@ -54,7 +54,7 @@ func _animation_finished():
 		change_Health()
 		reset_wateredNum() #TODO: Confirm this is correct
 	
-	GameVariables.plantStates[number] = GameVariables.plantStates[number].get_next_state(health)
+	GameVariables.plantStates[number] = GameVariables.plantStates[number].get_next_state(health,waterHealth,tempHealth)
 	$plant.set_texture(load(GameVariables.plantStates[number].path))
 	update()
 

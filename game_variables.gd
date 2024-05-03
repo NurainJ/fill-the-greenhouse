@@ -6,6 +6,7 @@ var days_passed:float = 0
 var activePlant:int = 0 # An int from 0 to 7 (exclusive) representing which plant is currently selected
 var current_scene = "res://start_screen.tscn"
 
+const deathTol = 0.1
 const waterConst = 0.1
 const tempConst = 0.1
 
