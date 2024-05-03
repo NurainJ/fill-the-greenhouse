@@ -14,6 +14,9 @@ const PotPosition = [
 	
 # Initialize the pots if necessary and update their graphics
 func _ready():
+	$Calendar._ready()
+	$Poster._ready()
+	$VolumeButton._ready()
 	if !isInitialized:
 		initializePots()
 	for i in range(7):
@@ -26,7 +29,7 @@ func initializePots():
 			GameVariables.soilPathIndicies.append(0)
 			GameVariables.plantStates.append(GameVariables.initialStates[GameVariables.Species.LadySlipper])
 			nextDay.connect(get_node("Pot" + str(x))._animation_finished)
-	nextDay.connect(get_node("Poster").nextDay)
+	nextDay.connect(get_node("Poster").update)
 	isInitialized = true
 
 # When the next day button is clicked, fade to black. Transition to end game if it is the last day.

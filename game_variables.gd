@@ -6,10 +6,8 @@ var days_passed:float = 0
 var activePlant:int = 0 # An int from 0 to 7 (exclusive) representing which plant is currently selected
 var current_scene = "res://start_screen.tscn"
 
-var waterConst = 0.1
-var tempConst = 0.1
-
-var zero = 0.0000001
+const waterConst = 0.1
+const tempConst = 0.1
 
 # An array of the current state for each of the 7 plants
 var plantStates = Array() 

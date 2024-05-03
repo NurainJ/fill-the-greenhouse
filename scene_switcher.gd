@@ -1,5 +1,5 @@
 extends Node
-
+signal resetGameSignal
 
 var previous_scene = {
 	"res://start_screen.tscn": "res://start_screen.tscn", 
@@ -39,3 +39,12 @@ func set_scene_back():
 	sceneNames[GameVariables.current_scene].visible = true
 	sceneNames[GameVariables.current_scene]._ready()
 	$Timer.start()
+
+func resetGame():
+	emit_signal("resetGameSignal")
+	for i in range(7):
+		GameVariables.plantStates[i] = GameVariables.initialStates[GameVariables.Species.LadySlipper]
+	GameVariables.temperature = 70
+	GameVariables.days_remaining = 40
+	set_scene("res://start_screen.tscn")
+	$MainScreen._ready()
